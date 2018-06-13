@@ -1,20 +1,17 @@
-﻿<html>
-<body>
+﻿<?php
 
-<?php
-$servername = "localhost";
-$dbname = "siscom";
-
-// Create connection
-$conn = mysqli_connect($servername,$dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}else{
-echo "postulante ingresado";}
-
-mysqli_close($conn);
+   include("connect_db.php");
+	$matricula= $_POST['matricula'];
+	$nombre= $_POST['nombre'];
+	
+	$query="INSERT INTO postulante (matricula, nombre) VALUES ('$matricula','$nombre')";
+	$resultado= $mysqli->query($query);
+	
+	if($resultado){
+		header("location: ramos.php");
+	}
+	else{
+		header("location: ramos.php");
+	}
+	
 ?>
-
-</body>
-</html>
