@@ -1,20 +1,20 @@
 CREATE TABLE IF NOT EXISTS horario(
     dia VARCHAR(10) not null,
     hora time not null,
-    PRIMARY KEY(dia,hora) 
+    PRIMARY KEY(dia,hora)
     );
-    
+
 CREATE TABLE IF NOT EXISTS postulante(
     matricula int(10) not null,
     nombre VARCHAR(50) not null,
     PRIMARY KEY(matricula)
     );
-          
+
 CREATE TABLE IF NOT EXISTS profesor(
     rut varchar(12) not null,
     nombre varchar(50) not null,
     PRIMARY KEY(rut)
-    );    
+    );
 CREATE TABLE IF NOT EXISTS ramo(
     codigo varchar(8) not null,
     nombre varchar(50) not null,
@@ -54,8 +54,8 @@ CREATE TABLE IF NOT EXISTS ayudo(
 CREATE TABLE IF NOT EXISTS curso(
     matricula int(10) not null,
     codigo varchar(8) not null,
-    calificaion varchar(3) not null,
-    PRIMARY KEY(matricula,codigo,calificaion),
+    calificacion varchar(3) not null,
+    PRIMARY KEY(matricula,codigo,calificacion),
     FOREIGN KEY(matricula) references postulante(matricula),
     FOREIGN KEY(codigo) references ramo(codigo)
     );
@@ -227,7 +227,7 @@ INSERT INTO ayudo(matricula, codigo,codigo_semestre) VALUES ('2013429359','52014
                                                             ('2012000000','525221-0','2015-2'),
                                                             ('2014000000','525147-2','2017-1'),
                                                             ('2001696969','525157-0','2015-1');
-INSERT INTO curso(matricula,codigo,calificaion) VALUES ('2013429359','520145-1','6.1'),
+INSERT INTO curso(matricula,codigo,calificacion) VALUES ('2013429359','520145-1','6.1'),
                                                             ('2013429359','525211-0','6.2'),
                                                             ('2013459916','520145-1','5.5'),
                                                             ('2012000000','525221-0','5.7'),
@@ -309,4 +309,3 @@ INSERT INTO dispone(matricula,dia,hora) VALUES ('2013429359','MARTES','15:15:00'
                                                ('2001696969','MIERCOLES','18:15:00'),
                                                ('2001696969','JUEVES','17:15:00'),
                                                ('2001696969','JUEVES','18:15:00');
-

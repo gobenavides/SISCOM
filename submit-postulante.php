@@ -8,6 +8,12 @@ include("connect_db.php");
 		$ramo1= $_POST['ramo1'];
 		$ramo2= $_POST['ramo2'];
 		$ramo3= $_POST['ramo3'];
+		$ramo_cursado1= $_POST['ramo_cursado1'];
+		$ramo_cursado2= $_POST['ramo_cursado2'];
+		$ramo_cursado3= $_POST['ramo_cursado3'];
+		$nota1= $_POST['nota1'];
+		$nota2= $_POST['nota2'];
+		$nota3= $_POST['nota3'];
 		if(isset($_POST['solicitado1'])){
 		    $solicitado1 = 1;
 		}else{
@@ -23,13 +29,26 @@ include("connect_db.php");
 		}else{
 		    $solicitado3=0;
 		}
+		if(!empty($ramo_cursado1)){
+			$query01="INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado1','$nota1')";
+			$resultado01= $mysqli->query($query01);
+			if(!$resultado01){echo "error en la postulación (ramo cursado 1)";}
+		if(!empty($ramo_cursado2)){
+			$query02="INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado2','$nota2')";
+			$resultado02= $mysqli->query($query02);
+			if(!$resultado02){echo "error en la postulación (ramo cursado 2)";}
+			if(!empty($ramo_cursado3)){
+				$query03="INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado3','$nota3')";
+				$resultado03= $mysqli->query($query03);
+				if(!$resultado03){echo "error en la postulación (ramo cursado 3)";}
+		}}}
 		$query1="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo1','$solicitado1','0')";
 		if(!empty($ramo2)){
 			$query2="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo2','$solicitado2','0')";
 			$resultado2= $mysqli->query($query2);
 			if(!$resultado2){echo "error en la postulación (ramo 2)";}
 			if(!empty($ramo3)){
-				$query3="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo2','$solicitado2','0')";
+				$query3="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo3','$solicitado3','0')";
 				$resultado3= $mysqli->query($query3);
 				if(!$resultado3){echo "error en la postulación (ramo 3)";}
 		}}
@@ -324,6 +343,22 @@ include("connect_db.php");
 		    $solicitado3 = 1;
 		}else{
 		    $solicitado3=0;
+		}
+		if(!empty($ramo_cursado1)){
+			$query01="INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado1','$nota1')";
+			$resultado01= $mysqli->query($query01);
+			if(!$resultado01){echo "error en la postulación (ramo cursado 1)";}
+		if(!empty($ramo_cursado2)){
+			$query02="INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado2','$nota2')";
+			$resultado02= $mysqli->query($query02);
+			if(!$resultado02){echo "error en la postulación (ramo cursado 2)";}
+			if(!empty($ramo_cursado3)){
+				$query03="INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado3','$nota3')";
+				$resultado03= $mysqli->query($query03);
+				if(!$resultado03){echo "error en la postulación (ramo cursado 3)";}
+		}}}
+		else {
+			echo "los postulantes deben haber cursado al menos un ramo en la facultad de ciencias físicas y matemáticas."
 		}
 		$query1="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo1','$solicitado1','0')";
 		if(!empty($_POST['ramo2'])){
