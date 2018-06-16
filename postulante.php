@@ -10,9 +10,9 @@
 	<p>Nombre completo: <input type=text name=nombre /> </p>
 	<p>Matrícula: <input type=text name=matricula /> </p>
   <h2> Promedio últimos ramos cursados en CFM </h2>
-  <p>Codigo Ramo: <input type=text name=ramo_cursado1 /> calificación: <input type=text name=nota1 /><br></p>
-  <p>Codigo Ramo: <input type=text name=ramo_cursado2 /> calificación: <input type=text name=nota2 /><br></p>
-  <p>Codigo Ramo: <input type=text name=ramo_cursado3 /> calificación: <input type=text name=nota3 /><br></p>
+  <p>Codigo Ramo: <input type=text name=ramo_cursado1 /> Calificación: <input type=text name=nota1 /><br></p>
+  <p>Codigo Ramo: <input type=text name=ramo_cursado2 /> Calificación: <input type=text name=nota2 /><br></p>
+  <p>Codigo Ramo: <input type=text name=ramo_cursado3 /> Calificación: <input type=text name=nota3 /><br></p>
 	<h2> Ramos a los que postula. </h2>
 	<p>Debe postular al menos a un ramo. </p>
 	<p>Codigo Ramo: <input type=text name=ramo1 /> solicitado <input type="checkbox" name="solicitado1" value="solicitado1"><br></p>
