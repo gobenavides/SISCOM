@@ -13,20 +13,20 @@
 <body>
       <center><br/>
 	<form action='submit-postulante.php' method=post>
-	<h2> Datos postulante </h2>
+	<h2>Datos postulante </h2>
 	<p>Nombre completo: <input type=text name=nombre /> </p>
 	<p>Matrícula: <input type=text name=matricula /> </p>
   <h2> Promedio últimos ramos cursados en CFM </h2>
-  <p>Codigo Ramo: <input type=text name=ramo_cursado1 /> Calificación: <input type=text name=nota1 /><br></p>
-  <p>Codigo Ramo: <input type=text name=ramo_cursado2 /> Calificación: <input type=text name=nota2 /><br></p>
-  <p>Codigo Ramo: <input type=text name=ramo_cursado3 /> Calificación: <input type=text name=nota3 /><br></p>
-	<h2> Ramos a los que postula. </h2>
-	<p>Debe postular al menos a un ramo. </p>
-	<p>Codigo Ramo: <input type=text name=ramo1 /> solicitado <input type="checkbox" name="solicitado1" value="solicitado1"><br></p>
-	<p>Codigo Ramo: <input type=text name=ramo2 /> solicitado <input type="checkbox" name="solicitado2" value="solicitado2"><br></p>
-	<p>Codigo Ramo: <input type=text name=ramo3 /> solicitado <input type="checkbox" name="solicitado3" value="solicitado3"> <br></p>
+  <p>Código Ramo: <input type=text name=ramo_cursado1 /> Calificación: <input type=text name=nota1 /><br></p>
+  <p>Código Ramo: <input type=text name=ramo_cursado2 /> Calificación: <input type=text name=nota2 /><br></p>
+  <p>Código Ramo: <input type=text name=ramo_cursado3 /> Calificación: <input type=text name=nota3 /><br></p>
+	<h2> Ramos a los que postula </h2>
+	<p>Debe postular al menos a un ramo </p>
+	<p>Código Ramo: <input type=text name=ramo1 /> solicitado <input type="checkbox" name="solicitado1" value="solicitado1"><br></p>
+	<p>Código Ramo: <input type=text name=ramo2 /> solicitado <input type="checkbox" name="solicitado2" value="solicitado2"><br></p>
+	<p>Código Ramo: <input type=text name=ramo3 /> solicitado <input type="checkbox" name="solicitado3" value="solicitado3"><br></p>
 	<h2> Horario disponible </h2>
-	<p> chequear los horarios que tiene disponible. Debe chequear al menos una casilla. </p>
+	<p> Chequear los horarios que tiene disponible. Debe marcar al menos una casilla. </p>
 <p><table>
   <tr>
 	 <th>HORA</th><th>LUNES </th><th>MARTES</th><th> MIÉRCOLES</th><th> JUEVES </th><th>VIERNES </th></tr><tr>
