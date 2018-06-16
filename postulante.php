@@ -1,6 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+      <meta charset="UTF-8">
+
+
+      <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>   <!-- Aca añado mis documentos que contienen los estilos, que utilizare en nuestra pagina, <link> nos indica que utilizaremos el documento indicado en href="documento", en este caso es el framework bootstrap del que les hable y el que les recomiendo usar. Bootstrap tiene estilos css y funciones javascript que debemos importar (referirnos a ella con link), en este caso estamos añadiendo la parte de estilos(css) y en la siguiente linea añadiremos la parte javascript (es un lenguaje de programacion orientado a desarrollo web, nos ayuda a crear páginas dinámicas, cualquier duda me dicen)  -->
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- Importe ajax, no se preocupen por esto pero les puede ser utíl para quien quiera aprender más -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Parte Js de bootstrap -->
       <title>Formulario de Postulación</title>
 </head>
 <body>
