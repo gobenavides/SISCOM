@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS horario(
 CREATE TABLE IF NOT EXISTS postulante(
     matricula int(10) not null,
     nombre VARCHAR(50) not null,
+    correo VARCHAR(15) not null,
     PRIMARY KEY(matricula)
     );
 
@@ -148,11 +149,11 @@ INSERT INTO horario(dia, hora) VALUES ('VIERNES','19:15:00');
 INSERT INTO horario(dia, hora) VALUES ('VIERNES','20:15:00');
 
 
-INSERT INTO postulante(matricula, nombre) VALUES ('2013429359','Sebastián Moraga Scheuermann'),
-                                                 ('2013459916','Isabel Donoso Leiva'),
-                                                 ('2012000000','Katerin De la Hoz'),
-                                                 ('2014000000','Gonzalo Benavides García'),
-                                                 ('2001696969','Jorge Nitales');
+INSERT INTO postulante(matricula, nombre, correo) VALUES ('2013429359','Sebastián Moraga Scheuermann','smoraga'),
+                                                 ('2013459916','Isabel Donoso Leiva','idonoso'),
+                                                 ('2012000000','Katerin De la Hoz','kdelahoz'),
+                                                 ('2014000000','Gonzalo Benavides García','gbenavides'),
+                                                 ('2001696969','Jorge Nitales','jnitales');
 
 INSERT INTO profesor(rut, nombre) VALUES ('15.555.555-5','Maike Litoris'),
                                          ('16.666.666-5','Patricio Carlos Agusto'),

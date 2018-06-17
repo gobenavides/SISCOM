@@ -12,10 +12,11 @@
 </head>
 <body>
       <center><br/>
-	<form action='submit-postulante.php' method=post>
+	<form action='submit-postulante_viejo.php' method=post>
 	<h2>Datos postulante </h2>
 	<p>Nombre completo: <input type=text name=nombre /> </p>
 	<p>Matrícula: <input type=text name=matricula /> </p>
+  <p>Correo institucional (sin @udec.cl): <input type=text name=mail /> </p>
   <h2> Promedio últimos ramos cursados en CFM </h2>
   <p>Código Ramo: <input type=text name=ramo_cursado1 /> Calificación: <input type=text name=nota1 /><br></p>
   <p>Código Ramo: <input type=text name=ramo_cursado2 /> Calificación: <input type=text name=nota2 /><br></p>
@@ -68,8 +69,7 @@
 	<input type="checkbox" name="12-viernes" value="12-viernes"></th></tr><tr>
 	<th>20:15</th><th> <input type="checkbox" name="13-lunes" value="13-lunes"></th><th><input type="checkbox" name="13-martes" value="13-martes"></th><th>
 	<input type="checkbox" name="13-miercoles" value="13-miercoles"></th><th><input type="checkbox" name="13-jueves" value="13-jueves"></th><th>
-	<input type="checkbox" name="13-viernes" value="13-viernes"></th></tr></p>
-		<p><input type="submit" name="nuevo" value="postulante nuevo">
-			<input type="submit" name="viejo" value="ya registrado"></p></form>	  </center>
+	<input type="checkbox" name="13-viernes" value="13-viernes"></th></tr></table></p>
+		<p>	<input type="submit" value="ya registrado"></p></form>	  </center>
 </body>
 </html>
