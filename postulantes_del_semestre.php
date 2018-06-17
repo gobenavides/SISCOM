@@ -7,8 +7,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default"> <!-- Todo lo que esté dentro de nav sera la barra de navegacion -->
   <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -35,7 +36,7 @@
           </ul>
 
         </li>
-         <li class="dropdown">
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultar <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="postulantes_del_semestre.php">Postulantes del semestre actual</a></li>
@@ -49,9 +50,62 @@
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-<?php
 
-include("connect_db.php");
-$sql="SELECT * FROM postulante";
-$result = $mysqli->query($sql);
-?>
+  <?php
+  include("connect_db.php");
+  $sql_general="SELECT * FROM postulante";
+  $sql_ramos="SELECT DISTINCT nombre FROM ramo";
+  $result_general = $mysqli->query($sql_general);
+  $ramos = $mysqli->query($sql_ramos);
+  ?>
+
+  <!-- tabla-->
+  <body>
+    <div class="container">
+      <h2>Postulantes del semestre</h2>
+      <p>Tabla que muestra todos los postulantes del semestre actual</p>
+      <table class="table table-dark">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Matrícula</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php while ($row = mysqli_fetch_array($result_general)) { ?>
+            <tr>
+              <td><?php echo $row[0]; ?></td>
+              <td><?php echo $row[1]; ?></td>
+              <td><?php echo $row[2]; ?></td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <h2></h2>
+      <p>Mostrar postulantes por ramo</p>
+      <form action="postulantes_de_ramo.php">
+        <div class="form-group">
+          <label for="sel1">Seleccione el código de un ramo</label>
+          <select class="form-control" id="sel1">
+            <?php while ($row = mysqli_fetch_array($ramos)) { ?>
+              <tr>
+                <option><?php echo $row[0]; ?></option>
+              </tr>
+            <?php } ?>
+          </select>
+        </div>
+      </form>
+    </div>
+
+
+
+
+
+
+
+  </body>
