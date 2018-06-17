@@ -1,46 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+	<style>
+	.header {
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 20px 10px;
+	}
+	.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 25px;
+  line-height: 25px;
+  border-radius: 4px;
+	}
+	.header-right {
+    float: right;
+  }
+	</style>
 	<meta charset="utf-8">
-	<title>Sistema de Postulación a ayudantías: Facultad de Ciencias Físicas y Matemáticas</title>
+	<title>Servicio de Postulación a ayudantías Facultad de Ciencias Físicas y Matemáticas</title>
 
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styles.css" >
 
 </head>
 
-<body>
-
-	<header id="main-header">
-
-				 <img align="right" src="images/cfm.png" alt="cfm_h" />
-<h3>
-			<span class="site-name">Sistema de Postulación a ayudantías: </span><br></h3>
-		<!-- <h4>	<span class="site-desc">Facultad de Ciencias Físicas y Matemáticas</span></h4>
-		 <!-- / #logo-header -->
-
-	</header><!-- / #main-header -->
-
-
-	<!--<section id="main-content">
-
-		<article>
-		  <header>
-
-			</header>
-
-			<center>  <img src="images/via.jpg" alt="Via Ahlamo" /> </center>
-
-			<div class="content">
-
-		  </div> -->
-
-		 <!--</article> /article -->
-
-	<!--</section>  / #main-content -->
-
-
-
+<body style="DarkBlue">
+	<div class="header">
+		<a href="#home">Servicio de Postulación a Ayudantías</a>
+	  <div class="header-right">
+			<a class="logo"><img align="right" src="images/cfm.png" alt="cfm_h" /></a>
+	    	  </div>
+	</div>
 
 
 

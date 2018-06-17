@@ -2,16 +2,48 @@
 <html>
 <head>
       <meta charset="UTF-8">
+      <style>
+      ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      }
 
+      li {
+      float: left;
+      }
+
+      li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      }
+
+      li a:hover:not(.active) {
+      background-color: #111;
+      }
+
+      .active {
+      background-color: #000080;
+      }
+      </style>
 
       <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>   <!-- Aca añado mis documentos que contienen los estilos, que utilizare en nuestra pagina, <link> nos indica que utilizaremos el documento indicado en href="documento", en este caso es el framework bootstrap del que les hable y el que les recomiendo usar. Bootstrap tiene estilos css y funciones javascript que debemos importar (referirnos a ella con link), en este caso estamos añadiendo la parte de estilos(css) y en la siguiente linea añadiremos la parte javascript (es un lenguaje de programacion orientado a desarrollo web, nos ayuda a crear páginas dinámicas, cualquier duda me dicen)  -->
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- Importe ajax, no se preocupen por esto pero les puede ser utíl para quien quiera aprender más -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Parte Js de bootstrap -->
-      <title>Formulario de Postulación</title>
+      <?php include("cabecera.php");?>
 </head>
-<body>
-      <center><br/>
+<body>  <ul>
+  <li><a href="postulante0.php">Postulante Nuevo</a></li>
+  <li><a class="active" href="#">Postulante Ya Registrado</a></li>
+</ul>
+<h1>Formulario de Postulación</h1>
+      <div><center><br/>
 	<form action='submit-postulante_viejo.php' method=post>
 	<h2>Datos postulante </h2>
   <table><tr>
@@ -71,6 +103,6 @@
   	<td>20:15</td><td align="center"> <input type="checkbox" name="13-lunes" value="13-lunes"></td><td align="center"><input type="checkbox" name="13-martes" value="13-martes"></td><td align="center">
   	<input type="checkbox" name="13-miercoles" value="13-miercoles"></td><td align="center"><input type="checkbox" name="13-jueves" value="13-jueves"></td><td align="center">
   	<input type="checkbox" name="13-viernes" value="13-viernes"></td></tr></table></p>
-		<p>	<input type="submit" value="ya registrado"></p></form>	  </center>
+		<p>	<input type="submit" value="ya registrado"></p></form>	  </center></div>
 </body>
 </html>
