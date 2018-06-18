@@ -9,7 +9,7 @@
 <?php
 include("connect_db.php");
 $nombre_ramo= $_POST['nombre_ramo'];
-$sql="SELECT postulante.nombre, postula.matricula FROM postulante,postula,ramo WHERE postulante.matricula=postula.matricula AND postula.codigo=ramo.codigo AND ramo.nombre=$nombre_ramo";
+$sql="SELECT postulante.nombre, postula.matricula FROM postulante, postula, ramo WHERE postulante.matricula=postula.matricula AND postula.codigo=ramo.codigo AND ramo.nombre=$nombre_ramo";
 $tabla = $mysqli->query($sql);
 ?>
 

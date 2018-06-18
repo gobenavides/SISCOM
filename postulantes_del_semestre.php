@@ -88,18 +88,18 @@
     <div class="container">
       <h2></h2>
       <p>Mostrar postulantes por ramo</p>
-      <form action="postulantes_de_ramo.php", method="post">
+      <form action="postulantes_de_ramo.php", method=post>
         <div class="form-group">
           <label for="sel1">Seleccione el código de un ramo</label>
           <select class="form-control" id="sel1">
             <?php while ($row = mysqli_fetch_array($ramos)) { ?>
               <tr>
-                <option><?php echo $row[0]; ?></option>
+                <option value=  > <?php echo $row[0]; ?></option> <!-- FALTA VER COMO PONER EL VALUE!!!!!! -->
               </tr>
             <?php } ?>
           </select>
         </div>
-        <button type="submit" name="nombre_ramo" class="btn btn-default">Submit</button>
+        <button type=" button" class="btn" value="">Submit</button> <!-- FALTA VER COMO PONER EL VALUE!!!!! -->
       </form>
     </div>
 
