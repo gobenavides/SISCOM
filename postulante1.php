@@ -38,12 +38,29 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Parte Js de bootstrap -->
       <?php include("cabecera.php");?>
 </head>
-<body>  <ul>
-  <li><a href="postulante0.php">Postulante Nuevo</a></li>
-  <li><a class="active" href="#">Postulante Ya Registrado</a></li>
-</ul>
+<body>
+  <nav class="navbar navbar-default"> <!-- Todo lo que estè dentro de nav sera la barra de navegacion -->
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">Sección Postulates </a> <!-- las etiquetas a nos indica que el texto dentro de la etiqueta será un link a otra página (docimento), el elemento será clickeable y al hacerlo redirigirá a la página indicada dentro de las comillas en el atributo href, en este caso al hacer click en café, nos redirige a "index.html" que en este caso es la misma pagina, pero podría llamar a otra pagina ej: href="pagina2.html", en este caso no la he creado así que les dirá que la página no se encuentra, para crearla deben crearla en el mismo directorio donde está su página, si la añaden en una carpeta deben incluir el nombre de la carpeta (href="carpeta/pagina2.html") -->
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul> <!-- esto es una lista desordenada -->
+          <li><a href="administrador.php">Administrador<span class="sr-only">(current)</span></a></li> <!-- Falta crear página de adminitrador-->
+          <li><a href="postulante0.php">Postulante Nuevo<span class="sr-only">(current)</span></a></li>
+          <li><a class="active" href="postulante1.php">Postulante Ya Registrado<span class="sr-only">(current)</span></a></li>
+            </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 <h1>Formulario de Postulación</h1>
-      <div><center><br/>
+      <div><center>
 	<form action='submit-postulante_viejo.php' method=post>
 	<h2>Datos postulante </h2>
   <table><tr>
@@ -64,45 +81,45 @@
   <p><table>
     <tr>
   	 <th>HORA&nbsp</th><th>LUNES&nbsp </th><th>MARTES&nbsp</th><th> MIÉRCOLES&nbsp</th><th> JUEVES&nbsp </th><th>VIERNES </th></tr><tr>
-  	<td>8:15</td><td align="center"> <input type="checkbox" name="1-lunes" value="1-lunes"></td><td align="center"><input type="checkbox" name="1-martes" value="1-martes"></td><td align="center">
-  	<input type="checkbox" name="1-miercoles" value="1-miercoles"></td><td align="center"><input type="checkbox" name="1-jueves" value="1-jueves"></td><td align="center">
-  	<input type="checkbox" name="1-viernes" value="1-viernes"></td></tr><tr>
-  	<td>9:15 </td><td align="center"><input type="checkbox" name="2-lunes" value="2-lunes"></td><td align="center"><input type="checkbox" name="2-martes" value="2-martes"></td><td align="center">
-  	<input type="checkbox" name="2-miercoles" value="2-miercoles"></td><td align="center"><input type="checkbox" name="2-jueves" value="2-jueves"></td><td align="center">
-  	<input type="checkbox" name="2-viernes" value="2-viernes"></td></tr><tr>
-  	<td>10:15 </td><td align="center"><input type="checkbox" name="3-lunes" value="3-lunes"></td><td align="center"><input type="checkbox" name="3-martes" value="3-martes"></td><td align="center">
-  	<input type="checkbox" name="3-miercoles" value="3-miercoles"></td><td align="center"><input type="checkbox" name="3-jueves" value="3-jueves"></td><td align="center">
-  	<input type="checkbox" name="3-viernes" value="3-viernes"></td></tr><tr>
-  	<td>11:15</td><td align="center"> <input type="checkbox" name="4-lunes" value="4-lunes"></td><td align="center"><input type="checkbox" name="4-martes" value="4-martes"></td><td align="center">
-  	<input type="checkbox" name="4-miercoles" value="4-miercoles"></td><td align="center"><input type="checkbox" name="4-jueves" value="4-jueves"></td><td align="center">
-  	<input type="checkbox" name="4-viernes" value="4-viernes"></td></tr><tr>
-  	<td>12:15</td><td align="center"> <input type="checkbox" name="5-lunes" value="5-lunes"></td><td align="center"><input type="checkbox" name="5-martes" value="5-martes"></td><td align="center">
-  	<input type="checkbox" name="5-miercoles" value="5-miercoles"></td><td align="center"><input type="checkbox" name="5-jueves" value="5-jueves"></td><td align="center">
-  	<input type="checkbox" name="5-viernes" value="5-viernes"></td></tr><tr>
-  	<td>13:15</td><td align="center"> <input type="checkbox" name="6-lunes" value="6-lunes"></td><td align="center"><input type="checkbox" name="6-martes" value="6-martes"></td><td align="center">
-  	<input type="checkbox" name="6-miercoles" value="6-miercoles"></td><td align="center"><input type="checkbox" name="6-jueves" value="6-jueves"></td><td align="center">
-  	<input type="checkbox" name="6-viernes" value="6-viernes"></td></tr><tr>
-  	<td>14:15</td><td align="center"> <input type="checkbox" name="7-lunes" value="7-lunes"></td><td align="center"><input type="checkbox" name="7-martes" value="7-martes"></td><td align="center">
-  	<input type="checkbox" name="7-miercoles" value="7-miercoles"></td><td align="center"><input type="checkbox" name="7-jueves" value="7-jueves"></td><td align="center">
-  	<input type="checkbox" name="7-viernes" value="7-viernes"></td></tr><tr>
-  	<td>15:15</td><td align="center"> <input type="checkbox" name="8-lunes" value="8-lunes"></td><td align="center"><input type="checkbox" name="8-martes" value="8-martes"></td><td align="center">
-  	<input type="checkbox" name="8-miercoles" value="8-miercoles"></td><td align="center"><input type="checkbox" name="8-jueves" value="8-jueves"></td><td align="center">
-  	<input type="checkbox" name="8-viernes" value="8-viernes"></td></tr><tr>
-  	<td>16:15</td><td align="center"> <input type="checkbox" name="9-lunes" value="9-lunes"></td><td align="center"><input type="checkbox" name="9-martes" value="9-martes"></td><td align="center">
-  	<input type="checkbox" name="9-miercoles" value="9-miercoles"></td><td align="center"><input type="checkbox" name="9-jueves" value="9-jueves"></td><td align="center">
-  	<input type="checkbox" name="9-viernes" value="9-viernes"></td></tr><tr>
-  	<td>17:15</td><td align="center"> <input type="checkbox" name="10-lunes" value="10-lunes"></td><td align="center"><input type="checkbox" name="10-martes" value="10-martes"></td><td align="center">
-  	<input type="checkbox" name="10-miercoles" value="10-miercoles"></td><td align="center"><input type="checkbox" name="10-jueves" value="10-jueves"></td><td align="center">
-  	<input type="checkbox" name="10-viernes" value="10-viernes"></td></tr><tr>
-  	<td>18:15</td><td align="center"> <input type="checkbox" name="11-lunes" value="11-lunes"></td><td align="center"><input type="checkbox" name="11-martes" value="11-martes"></td><td align="center">
-  	<input type="checkbox" name="11-miercoles" value="11-miercoles"></td><td align="center"><input type="checkbox" name="11-jueves" value="11-jueves"></td><td align="center">
-  	<input type="checkbox" name="11-viernes" value="11-viernes"></td></tr><tr>
-  	<td>19:15 </td><td align="center"><input type="checkbox" name="12-lunes" value="12-lunes"></td><td align="center"><input type="checkbox" name="12-martes" value="12-martes"></td><td align="center">
-  	<input type="checkbox" name="12-miercoles" value="12-miercoles"></td><td align="center"><input type="checkbox" name="12-jueves" value="12-jueves"></td><td align="center">
-  	<input type="checkbox" name="12-viernes" value="12-viernes"></td></tr><tr>
-  	<td>20:15</td><td align="center"> <input type="checkbox" name="13-lunes" value="13-lunes"></td><td align="center"><input type="checkbox" name="13-martes" value="13-martes"></td><td align="center">
-  	<input type="checkbox" name="13-miercoles" value="13-miercoles"></td><td align="center"><input type="checkbox" name="13-jueves" value="13-jueves"></td><td align="center">
-  	<input type="checkbox" name="13-viernes" value="13-viernes"></td></tr></table></p>
-		<p>	<input type="submit" value="ya registrado"></p></form>	  </center></div>
+  	<td>8:15</td><td align="center"> <label><input type="checkbox" name="1-lunes" value="1-lunes"></label></td><td align="center"><label><input type="checkbox" name="1-martes" value="1-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="1-miercoles" value="1-miercoles"></label></td><td align="center"><label><input type="checkbox" name="1-jueves" value="1-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="1-viernes" value="1-viernes"></label></td></tr><tr>
+  	<td>9:15 </td><td align="center"><label><input type="checkbox" name="2-lunes" value="2-lunes"></label></td><td align="center"><label><input type="checkbox" name="2-martes" value="2-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="2-miercoles" value="2-miercoles"></label></td><td align="center"><label><input type="checkbox" name="2-jueves" value="2-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="2-viernes" value="2-viernes"></label></td></tr><tr>
+  	<td>10:15 </td><td align="center"><label><input type="checkbox" name="3-lunes" value="3-lunes"></label></td><td align="center"><label><input type="checkbox" name="3-martes" value="3-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="3-miercoles" value="3-miercoles"></label></td><td align="center"><label><input type="checkbox" name="3-jueves" value="3-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="3-viernes" value="3-viernes"></label></td></tr><tr>
+  	<td>11:15</td><td align="center"> <label><input type="checkbox" name="4-lunes" value="4-lunes"></label></td><td align="center"><label><input type="checkbox" name="4-martes" value="4-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="4-miercoles" value="4-miercoles"></label></td><td align="center"><label><input type="checkbox" name="4-jueves" value="4-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="4-viernes" value="4-viernes"></label></td></tr><tr>
+  	<td>12:15</td><td align="center"> <label><input type="checkbox" name="5-lunes" value="5-lunes"></label></td><td align="center"><label><input type="checkbox" name="5-martes" value="5-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="5-miercoles" value="5-miercoles"></label></td><td align="center"><label><input type="checkbox" name="5-jueves" value="5-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="5-viernes" value="5-viernes"></label></td></tr><tr>
+  	<td>13:15</td><td align="center"> <label><input type="checkbox" name="6-lunes" value="6-lunes"></label></td><td align="center"><label><input type="checkbox" name="6-martes" value="6-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="6-miercoles" value="6-miercoles"></label></td><td align="center"><label><input type="checkbox" name="6-jueves" value="6-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="6-viernes" value="6-viernes"></label></td></tr><tr>
+  	<td>14:15</td><td align="center"> <label><input type="checkbox" name="7-lunes" value="7-lunes"></label></td><td align="center"><label><input type="checkbox" name="7-martes" value="7-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="7-miercoles" value="7-miercoles"></label></td><td align="center"><label><input type="checkbox" name="7-jueves" value="7-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="7-viernes" value="7-viernes"></label></td></tr><tr>
+  	<td>15:15</td><td align="center"> <label><input type="checkbox" name="8-lunes" value="8-lunes"></label></td><td align="center"><label><input type="checkbox" name="8-martes" value="8-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="8-miercoles" value="8-miercoles"></label></td><td align="center"><label><input type="checkbox" name="8-jueves" value="8-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="8-viernes" value="8-viernes"></label></td></tr><tr>
+  	<td>16:15</td><td align="center"> <label><input type="checkbox" name="9-lunes" value="9-lunes"></label></td><td align="center"><label><input type="checkbox" name="9-martes" value="9-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="9-miercoles" value="9-miercoles"></label></td><td align="center"><label><input type="checkbox" name="9-jueves" value="9-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="9-viernes" value="9-viernes"></label></td></tr><tr>
+  	<td>17:15</td><td align="center"> <label><input type="checkbox" name="10-lunes" value="10-lunes"></label></td><td align="center"><label><input type="checkbox" name="10-martes" value="10-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="10-miercoles" value="10-miercoles"></label></td><td align="center"><label><input type="checkbox" name="10-jueves" value="10-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="10-viernes" value="10-viernes"></label></td></tr><tr>
+  	<td>18:15</td><td align="center"> <label><input type="checkbox" name="11-lunes" value="11-lunes"></label></td><td align="center"><label><input type="checkbox" name="11-martes" value="11-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="11-miercoles" value="11-miercoles"></label></td><td align="center"><label><input type="checkbox" name="11-jueves" value="11-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="11-viernes" value="11-viernes"></label></td></tr><tr>
+  	<td>19:15 </td><td align="center"><label><input type="checkbox" name="12-lunes" value="12-lunes"></label></td><td align="center"><label><input type="checkbox" name="12-martes" value="12-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="12-miercoles" value="12-miercoles"></label></td><td align="center"><label><input type="checkbox" name="12-jueves" value="12-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="12-viernes" value="12-viernes"></label></td></tr><tr>
+  	<td>20:15</td><td align="center"> <label><input type="checkbox" name="13-lunes" value="13-lunes"></label></td><td align="center"><label><input type="checkbox" name="13-martes" value="13-martes"></label></td><td align="center">
+  	<label><input type="checkbox" name="13-miercoles" value="13-miercoles"></label></td><td align="center"><label><input type="checkbox" name="13-jueves" value="13-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="13-viernes" value="13-viernes"></label></td></tr></table></p>
+  		<p><input type="submit" value="postulante ya registrado"></p></form>	  </center></div>
 </body>
 </html>
