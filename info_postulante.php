@@ -49,6 +49,8 @@
 
 
     </div><!-- /.navbar-collapse -->
+
+
   </div><!-- /.container-fluid -->
 </nav>
 
@@ -59,58 +61,3 @@
   $result_general = $mysqli->query($sql_general);
   $ramos = $mysqli->query($sql_ramos);
   ?>
-
-  <!-- tabla-->
-  <body>
-
-    <div class="container">
-      <h2></h2>
-      <p>Mostrar postulantes de un ramo específico</p>
-
-      <form action="postulantes_de_ramo.php" method="POST">
-        <div class="form-group">
-          <label for="sel1">Seleccione el código de un ramo</label>
-          <select class="form-control" name="codigo_ramo">
-            <?php while ($row = mysqli_fetch_array($ramos)) { ?>
-              <tr>
-
-                <option value="<?php echo $row[0]; ?>" > <?php echo $row[0]; ?></option> <!-- FALTA VER COMO PONER EL VALUE!!!!!! -->
-              </tr>
-            <?php } ?>
-          </select>
-        </div>
-        <button type="submit" class="btn btn-default">Consultar</button>  <!-- FALTA VER COMO PONER EL VALUE!!!!! -->
-      </form>
-    </div>
-    <div class="container">
-      <h2>Postulantes del semestre</h2>
-      <p>Tabla que muestra todos los postulantes del semestre actual</p>
-      <table class="table table-dark">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Matrícula</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Correo</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <?php while ($row = mysqli_fetch_array($result_general)) { ?>
-            <tr>
-              <td><?php echo $row[0]; ?></td>
-              <td><?php echo $row[1]; ?></td>
-              <td><?php echo $row[2]; ?></td>
-            </tr>
-          <?php } ?>
-        </tbody>
-      </table>
-    </div>
-
-
-
-
-
-
-
-
-  </body>

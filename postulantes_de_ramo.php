@@ -8,21 +8,21 @@
 
 <?php
 include("connect_db.php");
-$nombre_ramo= $_POST['nombre_ramo'];
-$sql="SELECT postulante.nombre, postula.matricula FROM postulante, postula, ramo WHERE postulante.matricula=postula.matricula AND postula.codigo=ramo.codigo AND ramo.nombre=$nombre_ramo";
+$cod_ramo= $_POST["codigo_ramo"];
+$sql="SELECT postulante.nombre,postula.codigo FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo=".$cod_ramo;
+echo $sql;
 $tabla = $mysqli->query($sql);
 ?>
 
 <body>
   <div class="container">
-    <h2>Postulantes del ramo seleccionado</h2>
-    <p>Tabla que muestra todos los postulantes del ramo seleccionado del semestre actual</p>
+    <h2>Postulantes de <?php echo $cod_ramo;?></h2>
+    <p>Tabla que muestra todos los postulantes del ramo <?php echo $cod_ramo;?> seleccionado del semestre actual</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Matrícula</th>
-          <th scope="col">Postulante</th>
-          <th scope="col">Ramo</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Código</th>
         </tr>
       </thead>
 
@@ -31,7 +31,6 @@ $tabla = $mysqli->query($sql);
           <tr>
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
-            <td><?php echo $row[2]; ?></td>
           </tr>
         <?php } ?>
       </tbody>
