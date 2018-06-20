@@ -24,6 +24,7 @@ $tabla = $mysqli->query($sql);
           <th scope="col">Nombre</th>
           <th scope="col">Matrícula</th>
           <th scope="col">Correo</th>
+          <th scope="col"> </th>
         </tr>
       </thead>
 
@@ -33,6 +34,7 @@ $tabla = $mysqli->query($sql);
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
+            <td><a href="info_postulante.php?post_matricula=<?php echo $row[1]; ?>">(ver detalles)</a></td>
 
           </tr>
         <?php } ?>

@@ -52,7 +52,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul> <!-- esto es una lista desordenada -->
-          <li><a href="administrador.php">Administrador<span class="sr-only">(current)</span></a></li> <!-- Falta crear página de adminitrador-->
+
           <li><a href="postulante0.php">Postulante Nuevo<span class="sr-only">(current)</span></a></li>
           <li><a class="active" href="postulante1.php">Postulante Ya Registrado<span class="sr-only">(current)</span></a></li>
             </ul>
@@ -73,6 +73,7 @@
   <p>Código Ramo: <input type=text name=ramo_cursado3 /> Calificación: <input type=text name=nota3 /><br></p>
 	<h2> Ramos a los que postula </h2>
 	<p>Debe postular al menos a un ramo </p>
+  <p> El código del ramo debe contener un guión indicando la sección. Por ejemplo: 510145-1.</p><p> Si hay sólo una sección reemplazar por un cero. Por ejemplo: 520129-0.</p>
 	<p>Código Ramo: <input type=text name=ramo1 /> solicitado <input type="checkbox" name="solicitado1" value="solicitado1"><br></p>
 	<p>Código Ramo: <input type=text name=ramo2 /> solicitado <input type="checkbox" name="solicitado2" value="solicitado2"><br></p>
 	<p>Código Ramo: <input type=text name=ramo3 /> solicitado <input type="checkbox" name="solicitado3" value="solicitado3"><br></p>
@@ -94,13 +95,13 @@
   	<label><input type="checkbox" name="4-miercoles" value="4-miercoles"></label></td><td align="center"><label><input type="checkbox" name="4-jueves" value="4-jueves"></label></td><td align="center">
   	<label><input type="checkbox" name="4-viernes" value="4-viernes"></label></td></tr><tr>
   	<td>12:15</td><td align="center"> <label><input type="checkbox" name="5-lunes" value="5-lunes"></label></td><td align="center"><label><input type="checkbox" name="5-martes" value="5-martes"></label></td><td align="center">
-  	<label><input type="checkbox" name="5-miercoles" value="5-miercoles"></label></td><td align="center"><label><input type="checkbox" name="5-jueves" value="5-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="5-miercoles" value="5-miercoles" disabled></label></td><td align="center"><label><input type="checkbox" name="5-jueves" value="5-jueves"></label></td><td align="center">
   	<label><input type="checkbox" name="5-viernes" value="5-viernes"></label></td></tr><tr>
   	<td>13:15</td><td align="center"> <label><input type="checkbox" name="6-lunes" value="6-lunes"></label></td><td align="center"><label><input type="checkbox" name="6-martes" value="6-martes"></label></td><td align="center">
-  	<label><input type="checkbox" name="6-miercoles" value="6-miercoles"></label></td><td align="center"><label><input type="checkbox" name="6-jueves" value="6-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="6-miercoles" value="6-miercoles" disabled></label></td><td align="center"><label><input type="checkbox" name="6-jueves" value="6-jueves"></label></td><td align="center">
   	<label><input type="checkbox" name="6-viernes" value="6-viernes"></label></td></tr><tr>
   	<td>14:15</td><td align="center"> <label><input type="checkbox" name="7-lunes" value="7-lunes"></label></td><td align="center"><label><input type="checkbox" name="7-martes" value="7-martes"></label></td><td align="center">
-  	<label><input type="checkbox" name="7-miercoles" value="7-miercoles"></label></td><td align="center"><label><input type="checkbox" name="7-jueves" value="7-jueves"></label></td><td align="center">
+  	<label><input type="checkbox" name="7-miercoles" value="7-miercoles" disabled></label></td><td align="center"><label><input type="checkbox" name="7-jueves" value="7-jueves"></label></td><td align="center">
   	<label><input type="checkbox" name="7-viernes" value="7-viernes"></label></td></tr><tr>
   	<td>15:15</td><td align="center"> <label><input type="checkbox" name="8-lunes" value="8-lunes"></label></td><td align="center"><label><input type="checkbox" name="8-martes" value="8-martes"></label></td><td align="center">
   	<label><input type="checkbox" name="8-miercoles" value="8-miercoles"></label></td><td align="center"><label><input type="checkbox" name="8-jueves" value="8-jueves"></label></td><td align="center">
@@ -121,5 +122,8 @@
   	<label><input type="checkbox" name="13-miercoles" value="13-miercoles"></label></td><td align="center"><label><input type="checkbox" name="13-jueves" value="13-jueves"></label></td><td align="center">
   	<label><input type="checkbox" name="13-viernes" value="13-viernes"></label></td></tr></table></p>
   		<p><input type="submit" value="postulante ya registrado"></p></form>	  </center></div>
+
+
+  <?php include("pie-de-pag.php");?>
 </body>
 </html>

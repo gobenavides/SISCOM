@@ -78,9 +78,10 @@ li a:hover:not(.active) {
     <!-- aquí empieza lo que está debajo del menú superior-->
   <b>Facultad de Ciencias Físicas y Matemáticas</b><br>
   <b>Universidad de Concepción</b>
-
-
-    </body>
   </div>
+
+      <?php include("pie-de-pag.php");?>
+    </body>
+
 
   </html>

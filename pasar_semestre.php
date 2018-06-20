@@ -64,7 +64,7 @@
 </nav>
   <?php
   include("connect_db.php");
-  $sql_ramos="SELECT DISTINCT codigo,nombre FROM ramo";
+  $sql_ramos="SELECT codigo FROM ramo";
   $sql_profes="SELECT rut,nombre FROM profesor";
   $ramos = $mysqli->query($sql_ramos);
   $profes = mysqli_query($mysqli,$sql_profes);
@@ -93,7 +93,7 @@
           <select class="form-control" id="sel1" name="ramo">
             <?php while ($row = mysqli_fetch_array($ramos)) { ?>
               <tr>
-                <option value="<?php echo $row[0];?>"> <?php echo $row[1]; ?></option> 
+                <option value="<?php echo $row[0];?>"> <?php echo $row[0]; ?></option>
               </tr>
             <?php } ?>
           </select>
@@ -101,6 +101,7 @@
         <div class="form-group">
 
           <label for="sel2">Añadir profesores del ramo</label>
+          <p> Presionar Ctrl para seleccionar más de un profesor.</p>
           <select class="form-control" multiple="multiple" name="profes[]">
             <?php while($row1 = mysqli_fetch_array($profes)){?>
 
@@ -110,7 +111,7 @@
             </select>
         </div>
         <div class="form-group">
-          Seleccione el horario del ramo
+          <label>Seleccione el horario del ramo</label>
         <center><p><table>
           <tr>
         	 <th>HORA&nbsp</th><th>LUNES&nbsp </th><th>MARTES&nbsp</th><th> MIÉRCOLES&nbsp</th><th> JUEVES&nbsp </th><th>VIERNES </th></tr><tr>
@@ -127,16 +128,16 @@
         	<input type="checkbox" name="4-miercoles" value="4-miercoles"></td><td align="center"><input type="checkbox" name="4-jueves" value="4-jueves"></td><td align="center">
         	<input type="checkbox" name="4-viernes" value="4-viernes"></td></tr><tr>
         	<td>12:15</td><td align="center"> <input type="checkbox" name="5-lunes" value="5-lunes"></td><td align="center"><input type="checkbox" name="5-martes" value="5-martes"></td><td align="center">
-        	<input type="checkbox" name="5-miercoles" value="5-miercoles"></td><td align="center"><input type="checkbox" name="5-jueves" value="5-jueves"></td><td align="center">
+        	<input type="checkbox" name="5-miercoles" value="5-miercoles" disabled></td><td align="center"><input type="checkbox" name="5-jueves" value="5-jueves"></td><td align="center">
         	<input type="checkbox" name="5-viernes" value="5-viernes"></td></tr><tr>
         	<td>13:15</td><td align="center"> <input type="checkbox" name="6-lunes" value="6-lunes"></td><td align="center"><input type="checkbox" name="6-martes" value="6-martes"></td><td align="center">
         	<input type="checkbox" name="6-miercoles" value="6-miercoles"></td><td align="center"><input type="checkbox" name="6-jueves" value="6-jueves"></td><td align="center">
         	<input type="checkbox" name="6-viernes" value="6-viernes"></td></tr><tr>
         	<td>14:15</td><td align="center"> <input type="checkbox" name="7-lunes" value="7-lunes"></td><td align="center"><input type="checkbox" name="7-martes" value="7-martes"></td><td align="center">
-        	<input type="checkbox" name="7-miercoles" value="7-miercoles"></td><td align="center"><input type="checkbox" name="7-jueves" value="7-jueves"></td><td align="center">
+        	<input type="checkbox" name="7-miercoles" value="7-miercoles" disabled></td><td align="center"><input type="checkbox" name="7-jueves" value="7-jueves"></td><td align="center">
         	<input type="checkbox" name="7-viernes" value="7-viernes"></td></tr><tr>
         	<td>15:15</td><td align="center"> <input type="checkbox" name="8-lunes" value="8-lunes"></td><td align="center"><input type="checkbox" name="8-martes" value="8-martes"></td><td align="center">
-        	<input type="checkbox" name="8-miercoles" value="8-miercoles"></td><td align="center"><input type="checkbox" name="8-jueves" value="8-jueves"></td><td align="center">
+        	<input type="checkbox" name="8-miercoles" value="8-miercoles" disabled></td><td align="center"><input type="checkbox" name="8-jueves" value="8-jueves"></td><td align="center">
         	<input type="checkbox" name="8-viernes" value="8-viernes"></td></tr><tr>
         	<td>16:15</td><td align="center"> <input type="checkbox" name="9-lunes" value="9-lunes"></td><td align="center"><input type="checkbox" name="9-martes" value="9-martes"></td><td align="center">
         	<input type="checkbox" name="9-miercoles" value="9-miercoles"></td><td align="center"><input type="checkbox" name="9-jueves" value="9-jueves"></td><td align="center">
