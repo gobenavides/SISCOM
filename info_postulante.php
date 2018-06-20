@@ -58,4 +58,125 @@
 include("connect_db.php");
 $mat_postulante=$_POST["post_matricula"];
 
+$consulta_horario="SELECT dispone.dia,dispone.hora FROM dispone WHERE dispone.matricula='".$mat_postulante."'";
+
+$consulta_postula="SELECT ramo.nombre,ramo.codigo FROM ramo,postula WHERE ramo.codigo=postula.codigo AND postula.matricula='".$mat_postulante."'";
+
+$consulta_curso="SELECT ramo.nombre,ramo.codigo,curso.calificacion FROM ramo,curso
+WHERE ramo.codigo=curso.codigo AND postula.matricula='".$mat_postulante."'";
+
+$consulta_ayudo="SELECT ramo.nombre,ramo.codigo,ayudo.codigo_semestre,profesor.nombre FROM ramo,ayudo,profesor,dicta
+WHERE ramo.codigo=ayudo.codigo AND profesor.rut=dicta.rut AND dicta.codigo_semestre=ayudo.codigo_semestre
+AND dicta.codigo=ramo.codigo AND ayudo.matricula='".$mat_postulante."'";  /* hay que verificar si esta consulta está bien hecha */
+
+
+$tabla0 = $mysqli->query($consulta_horario);
+$tabla1 = $mysqli->query($consulta_postula);
+$tabla2 = $mysqli->query($consulta_curso);
+$tabla3 = $mysqli->query($consulta_ayudo);
 ?>
+
+<body>
+  
+  <!-- Tabla de horario -->
+  <div class="container">
+    <h2>Horario de disponibilidad del alumno <?php echo $mat_postulante;?></h2>
+    <p>Tabla que muestra los horarios disponibles del alumno de matrículas <?php echo $cod_ramo;?> en el semestre actual.</p>
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Día</th>
+          <th scope="col">Horario</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php while ($row = mysqli_fetch_array($tabla0)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tabla de postulaciones -->
+  <div class="container">
+    <h2>Postulaciones del alumno <?php echo $mat_postulante;?></h2>
+    <p>Tabla que muestra todos los ramos a los que ha postulado el alumno de matrícula <?php echo $cod_ramo;?> en el semestre actual.</p>
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Ramo</th>
+          <th scope="col">Código</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php while ($row = mysqli_fetch_array($tabla1)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tabla de cursos cursados -->
+
+  <div class="container">
+    <h2>Ramos cursados <?php echo $mat_postulante;?></h2>
+    <p>Tabla que muestra los ramos que ha cursado el alumno de matrícula. <?php echo $cod_ramo;?>. </p>
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Ramo</th>
+          <th scope="col">Código</th>
+          <th scope="col">Calificación</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php while ($row = mysqli_fetch_array($tabla2)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tabla de ayudantías pasadas-->
+
+  <div class="container">
+    <h2>Ayudantías que ha hecho el alumno <?php echo $mat_postulante;?></h2>
+    <p>Tabla que muestras los ramos en los que el alumno ha ayudado.<?php echo $cod_ramo;?>. </p>
+    <table class="table table-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Ramo</th>
+          <th scope="col">Código</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Docente</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php while ($row = mysqli_fetch_array($tabla3)) { ?>
+          <tr>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+            <td><?php echo $row[3]; ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+
+
+</body>
