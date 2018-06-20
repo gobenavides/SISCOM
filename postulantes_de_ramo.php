@@ -9,8 +9,8 @@
 <?php
 include("connect_db.php");
 $cod_ramo= $_POST["codigo_ramo"];
-$sql="SELECT postulante.nombre,postula.codigo FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo=".$cod_ramo;
-echo $sql;
+$sql="SELECT postulante.nombre,postulante.matricula,postulante.correo
+FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'";
 $tabla = $mysqli->query($sql);
 ?>
 
@@ -22,7 +22,8 @@ $tabla = $mysqli->query($sql);
       <thead class="thead-dark">
         <tr>
           <th scope="col">Nombre</th>
-          <th scope="col">Código</th>
+          <th scope="col">Matrícula</th>
+          <th scope="col">Correo</th>
         </tr>
       </thead>
 
@@ -31,6 +32,8 @@ $tabla = $mysqli->query($sql);
           <tr>
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
+
           </tr>
         <?php } ?>
       </tbody>

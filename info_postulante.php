@@ -54,10 +54,8 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-  <?php
-  include("connect_db.php");
-  $sql_general="SELECT * FROM postulante";
-  $sql_ramos="SELECT codigo FROM ramo";
-  $result_general = $mysqli->query($sql_general);
-  $ramos = $mysqli->query($sql_ramos);
-  ?>
+<?php
+include("connect_db.php");
+$mat_postulante=$_POST["post_matricula"];
+
+?>
