@@ -56,8 +56,8 @@
 
 <?php
 include("connect_db.php");
-$mat_postulante=$_POST["post_matricula"];
-
+$mat_postulante=$_GET['post_matricula'];
+echo $mat_postulante;
 $consulta_horario="SELECT dispone.dia,dispone.hora FROM dispone WHERE dispone.matricula='".$mat_postulante."'";
 
 $consulta_postula="SELECT ramo.nombre,ramo.codigo FROM ramo,postula WHERE ramo.codigo=postula.codigo AND postula.matricula='".$mat_postulante."'";
@@ -77,11 +77,11 @@ $tabla3 = $mysqli->query($consulta_ayudo);
 ?>
 
 <body>
-  
+
   <!-- Tabla de horario -->
   <div class="container">
     <h2>Horario de disponibilidad del alumno <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestra los horarios disponibles del alumno de matrículas <?php echo $cod_ramo;?> en el semestre actual.</p>
+    <p>Tabla que muestra los horarios disponibles del alumno de matrícula <?php echo $mat_postulante;?> en el semestre actual.</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -104,7 +104,7 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <!-- Tabla de postulaciones -->
   <div class="container">
     <h2>Postulaciones del alumno <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestra todos los ramos a los que ha postulado el alumno de matrícula <?php echo $cod_ramo;?> en el semestre actual.</p>
+    <p>Tabla que muestra todos los ramos a los que ha postulado el alumno de matrícula <?php echo $mat_postulante;?> en el semestre actual.</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -128,7 +128,7 @@ $tabla3 = $mysqli->query($consulta_ayudo);
 
   <div class="container">
     <h2>Ramos cursados <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestra los ramos que ha cursado el alumno de matrícula. <?php echo $cod_ramo;?>. </p>
+    <p>Tabla que muestra los ramos que ha cursado el alumno de matrícula. <?php echo $mat_postulante;?>. </p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -154,7 +154,7 @@ $tabla3 = $mysqli->query($consulta_ayudo);
 
   <div class="container">
     <h2>Ayudantías que ha hecho el alumno <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestras los ramos en los que el alumno ha ayudado.<?php echo $cod_ramo;?>. </p>
+    <p>Tabla que muestras los ramos en los que el alumno ha ayudado.<?php echo $mat_postulante;?>. </p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
