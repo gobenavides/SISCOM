@@ -1,0 +1,2 @@
+importar registration.sql como registration
+importar SQL_BASEDATOS_SISCOM.sql como proyecto
