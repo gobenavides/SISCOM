@@ -55,6 +55,7 @@ die();
         <thead class="thead-dark">
           <tr>
             <th scope="col">Matrícula</th>
+            <th scope="col"></th>
             <th scope="col">Nombre</th>
             <th scope="col">Correo</th>
           </tr>
@@ -64,6 +65,7 @@ die();
           <?php while ($row = mysqli_fetch_array($result_general)) { ?>
             <tr>
               <td><?php echo $row[0]; ?></td>
+              <td><a href="info_postulante.php?post_matricula=<?php echo $row[0]; ?>">(ver detalles)</a></td>
               <td><?php echo $row[1]; ?></td>
               <td><?php echo $row[2]; ?></td>
             </tr>

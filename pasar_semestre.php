@@ -44,7 +44,7 @@ die();
         <big>Se vaciarán las tablas postula y dispone.</big>
                   <label>Indicar código de semestre</label>
                   <p>Código Semestre: <input type=text name=semestre /></p></div>
-        <button align="right" type=" button" class="btn">vaciar tablas</button></form>
+        <button align="right" type=" button" class="btn">Vaciar tablas</button></form>
       </div>
       <div class="container">
       <h2>    <p>Actualizar información de un Ramo</p></h2>

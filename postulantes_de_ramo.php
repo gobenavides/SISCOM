@@ -19,14 +19,15 @@ die();
 include("connect_db.php");
 $cod_ramo= $_POST["codigo_ramo"];
 $sql="SELECT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
-FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'";
+FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='$cod_ramo'
+ORDER BY postula.solicitado DESC";
 
 $sql2="SELECT DISTINCT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
 FROM postulante, postula,dispone,tiene
-WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'
-AND tiene.codigo='".$cod_ramo."' AND postulante.matricula = ANY (SELECT dispone.matricula
-  FROM dispone,tiene WHERE tiene.codigo='".$cod_ramo."'
-  AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )";
+WHERE postulante.matricula=postula.matricula AND postula.codigo='$cod_ramo'
+AND tiene.codigo='$cod_ramo' AND postulante.matricula = ANY (SELECT dispone.matricula
+  FROM dispone,tiene WHERE tiene.codigo='$cod_ramo' AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )
+  ORDER BY postula.solicitado DESC";
 
 
 $tabla = $mysqli->query($sql);
@@ -36,7 +37,6 @@ $tabla2= $mysqli->query($sql2);
 <body>
   <div class="container">
     <h2>Postulantes de <?php echo $cod_ramo;?></h2>
-    <p>Tabla que muestra todos los postulantes del ramo <?php echo $cod_ramo;?> seleccionado del semestre actual</p>
     	<form action='aceptar-ayudante.php' method=post>
     <table class="table table-dark">
       <thead class="thead-dark">
@@ -65,16 +65,16 @@ $tabla2= $mysqli->query($sql2);
     </table>
     <input type="hidden" name="codigo" value="<?php echo $_POST["codigo_ramo"]; ?>">
 
-    <p><input type="submit" value="aceptar postulantes seleccionados."></p></form>
+    <p><input type="submit" value="Aceptar postulantes seleccionados."></p></form>
   </div>
 
   <div class="container">
     <h2>Postulantes de <?php echo $cod_ramo;?> con disponibilidad de horario compatible</h2>
-    <p>Tabla que muestra todos los postulantes del ramo <?php echo $cod_ramo;?> seleccionado del semestre actual con disponibilidad compatible.</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Nombre</th>
+          <th scope="col"></th>
           <th scope="col">Matrícula</th>
           <th scope="col">Correo</th>
           <th scope="col">Solicitado </th>
@@ -85,10 +85,10 @@ $tabla2= $mysqli->query($sql2);
         <?php while ($row = mysqli_fetch_array($tabla2)) { ?>
           <tr>
             <td><?php echo $row[0]; ?></td>
+            <td><a href="info_postulante.php?post_matricula=<?php echo $row[0]; ?>">(ver detalles)</a></td>
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
             <td><?php echo $row[3]; ?></td>
-            <td><a href="info_postulante.php?post_matricula=<?php echo $row[1]; ?>">(ver detalles)</a></td>
 
           </tr>
         <?php } ?>

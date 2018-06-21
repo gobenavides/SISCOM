@@ -51,7 +51,6 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <!-- Tabla de horario -->
   <div class="container">
     <h2>Horario de disponibilidad del alumno <?php echo $nombre_postulante;?></h2>
-    <p>Tabla que muestra los horarios disponibles de <?php echo $nombre_postulante;?> en el semestre actual.</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -74,7 +73,6 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <!-- Tabla de postulaciones -->
   <div class="container">
     <h2>Postulaciones del alumno <?php echo $nombre_postulante;?></h2>
-    <p>Tabla que muestra todos los ramos a los que ha postulado <?php echo $nombre_postulante;?> en el semestre actual.</p>
 <form action='aceptar-ayudante2.php' method=post>
     <table class="table table-dark">
       <thead class="thead-dark">
@@ -103,7 +101,6 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   </div>
   <div class="container">
     <h2>Ramos cursados por <?php echo $nombre_postulante;?></h2>
-    <p>Tabla que muestra los ramos que ha cursado <?php echo $nombre_postulante;?>. </p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -128,8 +125,7 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <!-- Tabla de ayudantías pasadas-->
 
   <div class="container">
-    <h2>Ayudantías que ha hecho el alumno <?php echo $nombre_postulante;?></h2>
-    <p>Tabla que muestras los ramos en los que el alumno ha ayudado.<?php echo $nombre_postulante;?>. </p>
+    <h2>Ayudantías previas del alumno <?php echo $nombre_postulante;?></h2>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
