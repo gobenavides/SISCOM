@@ -75,7 +75,7 @@ die();
 
     <div class="container">
       <h2></h2>
-      <p>Mostrar postulantes de un ramo específico</p>
+      <p>Mostrar postulantes de un ramo específico.</p>
 
       <form action="postulantes_de_ramo.php" method="POST">
         <div class="form-group">
