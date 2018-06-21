@@ -61,7 +61,7 @@ die();
 <?php
 include("connect_db.php");
 $cod_ramo= $_POST["codigo_ramo"];
-$sql="SELECT postulante.nombre,postulante.matricula,postulante.correo
+$sql="SELECT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
 FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'";
 
 $sql2="SELECT postulante.nombre,postulante.matricula,postulante.correo FROM postulante, postula,dispone,tiene
@@ -89,6 +89,7 @@ $tabla2= $mysqli->query($sql2);
           <th scope="col"> </th>
           <th scope="col">Matrícula</th>
           <th scope="col">Correo</th>
+          <th scope="col">Solicitado</th>
           <th scope="col">Aceptar</th>
         </tr>
       </thead>
@@ -100,6 +101,7 @@ $tabla2= $mysqli->query($sql2);
             <td><a href="info_postulante.php?post_matricula=<?php echo $row[1]; ?>">(ver detalles)</a></td>
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
+            <td><?php echo $row[3]; ?></td>
             <td><input type="checkbox" name="aceptar[]" value="<?php echo $row[1]; ?>"></td>
           </tr>
         <?php } ?>
