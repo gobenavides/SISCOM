@@ -35,7 +35,7 @@
 			mysqli_query($db, $query);
 
 			$_SESSION['username'] = $username;
-			$_SESSION['success'] = "You are now logged in";
+			$_SESSION['success'] = "Ha iniciado sesión con éxito";
 			header('location: index.php');
 		}
 
@@ -63,7 +63,7 @@
 			if (mysqli_num_rows($results) == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['loggedin'] = true;
-				$_SESSION['success'] = "You are now logged in";
+				$_SESSION['success'] = "Ha iniciado sesión con éxito";
 				header('location: index.php');
 			}else {
 				array_push($errors, "Wrong username/password combination");
