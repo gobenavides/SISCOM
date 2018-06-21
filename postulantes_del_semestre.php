@@ -50,7 +50,6 @@ die();
     </div>
     <div class="container">
       <h2>Postulantes del semestre</h2>
-      <p>Tabla que muestra todos los postulantes del semestre actual</p>
       <table class="table table-dark">
         <thead class="thead-dark">
           <tr>

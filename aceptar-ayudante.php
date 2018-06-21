@@ -31,7 +31,7 @@ if(!empty($_POST['aceptar'])) {
     echo "postulaciones aceptadas para  ";
     echo $codigo;
 }else{
-  echo "no ha seleccionado a ningún postulante.";
+  echo "No ha seleccionado a ningún postulante.";
 }
 
 ?>

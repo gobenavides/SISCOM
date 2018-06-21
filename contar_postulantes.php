@@ -25,9 +25,10 @@ die();
               WHERE dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo
               AND NOT ramo.codigo = ANY (SELECT postula.codigo
               FROM postula WHERE postula.seleccionado=1)";
-  $sql_con="SELECT ramo.nombre,ramo.codigo,postula.matricula,profesor.nombre
-              FROM ramo,postula,dicta,profesor
-              WHERE dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo AND
+  $sql_con="SELECT ramo.nombre,ramo.codigo,postulante.nombre,profesor.nombre
+              FROM ramo,postula,dicta,profesor,postulante
+              WHERE postula.matricula=postulante.matricula AND
+              dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo AND
               ramo.codigo = postula.codigo AND postula.seleccionado=1";
   $ramos_con = $mysqli->query($sql_con);
   $ramos_sin = $mysqli->query($sql_sin);
@@ -38,7 +39,7 @@ die();
 
     <div class="container">
       <h2></h2>
-      <p>Mostrar ramos que no cuentan con ayudante.</p>
+      <h2>Ramos sin ayudantes asignados</h2>
       <table class="table table-dark">
         <thead class="thead-dark">
           <tr>
@@ -61,13 +62,14 @@ die();
 
     </div>
     <div class="container">
-      <p>Mostrar ramos que sí cuentan con ayudante.</p>
+      <h2>Ramos con ayudantes asignados</h2>
       <table class="table table-dark">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Código</th>
-            <th scope="col">Matrícula</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Ayudante</th>
           </tr>
         </thead>
 
@@ -76,6 +78,7 @@ die();
             <tr>
               <td><?php echo $row[0]; ?></td>
               <td><?php echo $row[1]; ?></td>
+              <td><?php echo $row[3]; ?></td>
               <td><?php echo $row[2]; ?></td>
             </tr>
           <?php } ?>
