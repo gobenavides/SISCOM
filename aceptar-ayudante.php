@@ -6,14 +6,17 @@ echo "Acceso denegado. Inicie sesión como administrador para ver esta página";
 die();
 }
 ?>
+
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Sistema de Postulación a ayudantías: Sección Administrador</title>
   <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-          <?php include("cabecera.php");?>
+  <?php include("cabecera.php");?>
 </head>
+
 <nav class="navbar navbar-default"> <!-- Todo lo que esté dentro de nav sera la barra de navegacion -->
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,7 +46,7 @@ die();
           </ul>
 
         </li>
-         <li class="dropdown">
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultar <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="postulantes_del_semestre.php">Postulantes del semestre actual</a></li>
@@ -56,47 +59,37 @@ die();
 
 
     </div><!-- /.navbar-collapse -->
+
+
   </div><!-- /.container-fluid -->
 </nav>
+
 <?php
 include("connect_db.php");
-$cod_ramo= $_POST["codigo_ramo"];
-$sql="SELECT postulante.nombre,postulante.matricula,postulante.correo
-FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'";
-$tabla = $mysqli->query($sql);
+$codigo=$_POST['codigo'];
+if(!empty($_POST['aceptar'])) {
+    foreach($_POST['aceptar'] as $check) {
+            $query = "UPDATE postula
+                    SET seleccionado = 1
+                    WHERE matricula = '".$check."' AND codigo = '". $codigo ."'";
+            mysqli_query($mysqli,$query);
+    }
+    echo "postulaciones aceptadas para  ";
+    echo $codigo;
+}else{
+  echo "no ha seleccionado a ningún postulante.";
+}
+
 ?>
 
 <body>
+
+  <!-- Tabla de horario -->
   <div class="container">
-    <h2>Postulantes de <?php echo $cod_ramo;?></h2>
-    <p>Tabla que muestra todos los postulantes del ramo <?php echo $cod_ramo;?> seleccionado del semestre actual</p>
-    	<form action='aceptar-ayudante.php' method=post>
-    <table class="table table-dark">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col"> </th>
-          <th scope="col">Matrícula</th>
-          <th scope="col">Correo</th>
-          <th scope="col">Aceptar</th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <?php while ($row = mysqli_fetch_array($tabla)) { ?>
-          <tr>
-            <td><?php echo $row[0]; ?></td>
-            <td><a href="info_postulante.php?post_matricula=<?php echo $row[1]; ?>">(ver detalles)</a></td>
-            <td><?php echo $row[1]; ?></td>
-            <td><?php echo $row[2]; ?></td>
-            <td><input type="checkbox" name="aceptar[]" value="<?php echo $row[1]; ?>"></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-    <input type="hidden" name="codigo" value="<?php echo $_POST["codigo_ramo"]; ?>">
+    <form action='postulantes_de_ramo.php' method=post>
+      <input type="hidden" name="codigo_ramo" value="<?php echo $_POST["codigo"]; ?>">
+      <p><input type="submit" value="¿Regresar?"></p></form>
 
-    <p><input type="submit" value="aceptar postulantes seleccionados."></p></form>
-  </div>
 </body>
 <?php include("pie-de-pag.php");?>
