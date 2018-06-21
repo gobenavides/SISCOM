@@ -5,6 +5,7 @@
   <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <?php include("cabecera.php");?>
 </head>
 
 <nav class="navbar navbar-default"> <!-- Todo lo que esté dentro de nav sera la barra de navegacion -->
@@ -30,7 +31,7 @@
             <li><a href="elegir_ayudantes.php">Elegir alumnos ayudantes</a></li>
             <li><a href="pasar_semestre.php">Limpiar base para pasar a semestre siguiente</a></li>
             <li role="separator" class="divider"></li> <!-- separa visualmente la lista  -->
-            <li><a href="Ingredientes.html">Algo que aún no se me ocurre jaja</a></li>
+            <li><a href="add_nuevos.php">Añadir nuevos docentes o asignaturas.</a></li>
 
 
           </ul>
@@ -57,12 +58,18 @@
 <?php
 include("connect_db.php");
 $mat_postulante=$_GET['post_matricula'];
-echo $mat_postulante;
+
+$name_query="SELECT postulante.nombre FROM postulante WHERE postulante.matricula='".$mat_postulante."'";
+$nombre_postulante = $mysqli->query($name_query);
+$nombre_postulante = mysqli_fetch_array($nombre_postulante)[0];
+
+/* ------------------------------------------ */
+
 $consulta_horario="SELECT dispone.dia,dispone.hora FROM dispone WHERE dispone.matricula='".$mat_postulante."'";
 
 $consulta_postula="SELECT ramo.nombre,ramo.codigo FROM ramo,postula WHERE ramo.codigo=postula.codigo AND postula.matricula='".$mat_postulante."'";
 
-$consulta_curso="SELECT ramo.nombre,ramo.codigo,curso.calificacion FROM ramo,curso
+$consulta_curso="SELECT DISTINCT ramo.nombre,ramo.codigo,curso.calificacion FROM ramo,curso,postula
 WHERE ramo.codigo=curso.codigo AND postula.matricula='".$mat_postulante."'";
 
 $consulta_ayudo="SELECT ramo.nombre,ramo.codigo,ayudo.codigo_semestre,profesor.nombre FROM ramo,ayudo,profesor,dicta
@@ -80,8 +87,8 @@ $tabla3 = $mysqli->query($consulta_ayudo);
 
   <!-- Tabla de horario -->
   <div class="container">
-    <h2>Horario de disponibilidad del alumno <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestra los horarios disponibles del alumno de matrícula <?php echo $mat_postulante;?> en el semestre actual.</p>
+    <h2>Horario de disponibilidad del alumno <?php echo $nombre_postulante;?></h2>
+    <p>Tabla que muestra los horarios disponibles de <?php echo $nombre_postulante;?> en el semestre actual.</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -103,8 +110,8 @@ $tabla3 = $mysqli->query($consulta_ayudo);
 
   <!-- Tabla de postulaciones -->
   <div class="container">
-    <h2>Postulaciones del alumno <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestra todos los ramos a los que ha postulado el alumno de matrícula <?php echo $mat_postulante;?> en el semestre actual.</p>
+    <h2>Postulaciones del alumno <?php echo $nombre_postulante;?></h2>
+    <p>Tabla que muestra todos los ramos a los que ha postulado <?php echo $nombre_postulante;?> en el semestre actual.</p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -127,8 +134,8 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <!-- Tabla de cursos cursados -->
 
   <div class="container">
-    <h2>Ramos cursados <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestra los ramos que ha cursado el alumno de matrícula. <?php echo $mat_postulante;?>. </p>
+    <h2>Ramos cursados por <?php echo $nombre_postulante;?></h2>
+    <p>Tabla que muestra los ramos que ha cursado <?php echo $nombre_postulante;?>. </p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -143,7 +150,7 @@ $tabla3 = $mysqli->query($consulta_ayudo);
           <tr>
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
-            <td><?php echo $row[1]; ?></td>
+            <td><?php echo $row[2]; ?></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -153,8 +160,8 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <!-- Tabla de ayudantías pasadas-->
 
   <div class="container">
-    <h2>Ayudantías que ha hecho el alumno <?php echo $mat_postulante;?></h2>
-    <p>Tabla que muestras los ramos en los que el alumno ha ayudado.<?php echo $mat_postulante;?>. </p>
+    <h2>Ayudantías que ha hecho el alumno <?php echo $nombre_postulante;?></h2>
+    <p>Tabla que muestras los ramos en los que el alumno ha ayudado.<?php echo $nombre_postulante;?>. </p>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
@@ -180,3 +187,4 @@ $tabla3 = $mysqli->query($consulta_ayudo);
 
 
 </body>
+<?php include("pie-de-pag.php");?>

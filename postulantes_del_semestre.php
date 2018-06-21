@@ -5,6 +5,7 @@
   <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <?php include("cabecera.php");?>
 </head>
 
 <nav class="navbar navbar-default"> <!-- Todo lo que esté dentro de nav sera la barra de navegacion -->
@@ -30,7 +31,7 @@
             <li><a href="elegir_ayudantes.php">Elegir alumnos ayudantes</a></li>
             <li><a href="pasar_semestre.php">Limpiar base para pasar a semestre siguiente</a></li>
             <li role="separator" class="divider"></li> <!-- separa visualmente la lista  -->
-            <li><a href="Ingredientes.html">Algo que aún no se me ocurre jaja</a></li>
+            <li><a href="add_nuevos.php">Añadir nuevos docentes o asignaturas.</a></li>
 
 
           </ul>
@@ -114,3 +115,5 @@
 
 
   </body>
+
+  <?php include("pie-de-pag.php");?>

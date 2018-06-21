@@ -41,7 +41,7 @@
             <li><a href="elegir_ayudantes.php">Elegir alumnos ayudantes</a></li>
             <li><a href="pasar_semestre.php">Limpiar base para pasar a semestre siguiente</a></li>
             <li role="separator" class="divider"></li> <!-- separa visualmente la lista  -->
-            <li><a href="Ingredientes.html">Algo que aún no se me ocurre jaja</a></li>
+            <li><a href="add_nuevos.php">Añadir nuevos docentes o asignaturas.</a></li>
 
 
           </ul>
