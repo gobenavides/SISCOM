@@ -15,12 +15,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Log in</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div class="header">
-		<h2>Home Page</h2>
+		<h2>Bienvenido</h2>
 	</div>
 	<div class="content">
 
@@ -39,7 +39,7 @@
 		<!-- logged in user information -->
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<p>Bienvenido <strong><?php echo $_SESSION['username']; ?></strong></p>
-			<p> <a href="../administrador.php" style="color: red;">logout</a> </p>
+			<p> <a href="../administrador.php" style="color: red;">Continuar</a> </p>
 		<?php endif ?>
 	</div>
 <?php
