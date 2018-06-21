@@ -126,6 +126,7 @@ session_destroy();
   	<td>20:15</td><td align="center"> <label><input type="checkbox" name="13-lunes" value="13-lunes"></label></td><td align="center"><label><input type="checkbox" name="13-martes" value="13-martes"></label></td><td align="center">
   	<label><input type="checkbox" name="13-miercoles" value="13-miercoles"></label></td><td align="center"><label><input type="checkbox" name="13-jueves" value="13-jueves"></label></td><td align="center">
   	<label><input type="checkbox" name="13-viernes" value="13-viernes"></label></td></tr></table></p>
+    <p>Se borrarán todas las postulaciones previas </p>
   		<p><input type="submit" value="postulante ya registrado"></p></form>	  </center></div>
 
 

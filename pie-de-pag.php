@@ -2,8 +2,22 @@
 <html lang="es">
 <head>
 	<style>
-	.footer {
-		height: 180px;
+	html{
+  position:relative;
+  min-height: 100%;
+}
+/*Normalize html and body elements,this style is just good to have*/
+html,body{
+  margin:0;
+  padding-bottom: 100px;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height:180px;
+		width: 100%;
   overflow: hidden;
   background-color: #ffdb4d;
   padding: 10px 10px;

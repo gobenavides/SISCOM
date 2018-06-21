@@ -81,7 +81,7 @@ foreach($profes[0] as $values)
   $sql = "INSERT INTO dicta(codigo,rut,codigo_semestre) VALUES  ('$ramo','$values','$semestre')";
   mysqli_query($mysqli,$sql);
 }
-$query2="DELETE FROM tiene";
+$query2="DELETE FROM tiene WHERE tiene.codigo='".$ramo."'";
 mysqli_query($mysqli,$query2);
 if(isset($_POST['1-lunes'])){
 $hora1="INSERT INTO tiene(codigo,dia,hora) VALUES ('$ramo','LUNES','8:15:00')";
