@@ -42,7 +42,7 @@ li a:hover:not(.active) {
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!-- Importe ajax, no se preocupen por esto pero les puede ser utíl para quien quiera aprender más -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><!-- Parte Js de bootstrap -->
 
-      <?php include("cabecera.php");?>
+      <?php include("cabecera1.php");?>
 
 </head>
 

@@ -64,8 +64,8 @@ session_destroy();
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-<h1>Formulario de Postulación</h1>
-      <div><center>
+
+      <div><center><h1>Formulario de Postulación</h1>
 	<form action='submit-postulante_viejo.php' method=post>
 	<h2>Datos postulante </h2>
   <table><tr>
