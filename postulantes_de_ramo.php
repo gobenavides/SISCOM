@@ -64,18 +64,13 @@ $cod_ramo= $_POST["codigo_ramo"];
 $sql="SELECT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
 FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'";
 
-$sql2="SELECT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
+$sql2="SELECT DISTINCT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
 FROM postulante, postula,dispone,tiene
-WHERE postulante.matricula=postula.matricula AND postula.codigo='$cod_ramo'
-AND dispone.matricula=postulante.matricula AND tiene.codigo='$cod_ramo'
-AND postulante.matricula =
-ALL (SELECT dispone.matricula FROM dispone,tiene
-  WHERE dispone.matricula=tiene.matricula AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )";
+WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'
+AND tiene.codigo='".$cod_ramo."' AND postulante.matricula = ANY (SELECT dispone.matricula
+  FROM dispone,tiene WHERE tiene.codigo='".$cod_ramo."'
+  AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )";
 
-/* FALTA ARREGLAR LA ÚLTIMA CONSULTA */
-
-
-echo $sql2;
 
 $tabla = $mysqli->query($sql);
 $tabla2= $mysqli->query($sql2);

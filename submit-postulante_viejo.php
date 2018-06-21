@@ -29,8 +29,10 @@ if(isset($_POST['solicitado3'])){
 }
 	$sql=mysqli_query($mysqli,"SELECT * FROM postulante WHERE matricula='$matricula'");
 	if($f=mysqli_fetch_assoc($sql)){
+    $quer = "DELETE FROM dispone WHERE dispone.matricula='".$matricula."'";
     $queryy="DELETE FROM postula WHERE postula.matricula='".$matricula."'";
-    $res = $mysqli ->query($queryy);
+    $res = $mysqli ->query($quer);
+    $ress = $mysqli ->query($queryy);
 		$query1="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo1','$solicitado1','0')";
 		$resultado1= $mysqli->query($query1);
 		if($resultado1){
