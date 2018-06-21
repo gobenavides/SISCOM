@@ -63,7 +63,7 @@ session_destroy();
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
         </button>
-        <a class="navbar-brand" href="#">Sección Postulates </a> <!-- las etiquetas a nos indica que el texto dentro de la etiqueta será un link a otra página (docimento), el elemento será clickeable y al hacerlo redirigirá a la página indicada dentro de las comillas en el atributo href, en este caso al hacer click en café, nos redirige a "index.html" que en este caso es la misma pagina, pero podría llamar a otra pagina ej: href="pagina2.html", en este caso no la he creado así que les dirá que la página no se encuentra, para crearla deben crearla en el mismo directorio donde está su página, si la añaden en una carpeta deben incluir el nombre de la carpeta (href="carpeta/pagina2.html") -->
+        <a class="navbar-brand" href="#">Sección Postulantes </a> <!-- las etiquetas a nos indica que el texto dentro de la etiqueta será un link a otra página (docimento), el elemento será clickeable y al hacerlo redirigirá a la página indicada dentro de las comillas en el atributo href, en este caso al hacer click en café, nos redirige a "index.html" que en este caso es la misma pagina, pero podría llamar a otra pagina ej: href="pagina2.html", en este caso no la he creado así que les dirá que la página no se encuentra, para crearla deben crearla en el mismo directorio donde está su página, si la añaden en una carpeta deben incluir el nombre de la carpeta (href="carpeta/pagina2.html") -->
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
