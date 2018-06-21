@@ -121,11 +121,13 @@ $tabla3 = $mysqli->query($consulta_ayudo);
   <div class="container">
     <h2>Postulaciones del alumno <?php echo $nombre_postulante;?></h2>
     <p>Tabla que muestra todos los ramos a los que ha postulado <?php echo $nombre_postulante;?> en el semestre actual.</p>
+<form action='aceptar-ayudante2.php' method=post>
     <table class="table table-dark">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Ramo</th>
           <th scope="col">Código</th>
+          <th scope="col">Aceptar</th>
         </tr>
       </thead>
 
@@ -134,14 +136,17 @@ $tabla3 = $mysqli->query($consulta_ayudo);
           <tr>
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
+            <td><input type="checkbox" name="aceptar[]" value="<?php echo $row[1]; ?>"></td>
           </tr>
         <?php } ?>
       </tbody>
     </table>
-  </div>
 
+  <input type="hidden" name="mat_postulante" value="<?php echo $mat_postulante; ?>">
+
+  <p><input type="submit" value="aceptar ramos seleccionados."></p></form>
   <!-- Tabla de cursos cursados -->
-
+  </div>
   <div class="container">
     <h2>Ramos cursados por <?php echo $nombre_postulante;?></h2>
     <p>Tabla que muestra los ramos que ha cursado <?php echo $nombre_postulante;?>. </p>
