@@ -1,8 +1,4 @@
 <?php
-define('MyConst', TRUE);
-?>
-
-<?php
 	session_start();
 
 	if (!isset($_SESSION['username'])) {
@@ -15,7 +11,6 @@ define('MyConst', TRUE);
 		unset($_SESSION['username']);
 		header("location: login.php");
 	}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,10 +38,12 @@ define('MyConst', TRUE);
 
 		<!-- logged in user information -->
 		<?php  if (isset($_SESSION['username'])) : ?>
-			<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+			<p>Bienvenido <strong><?php echo $_SESSION['username']; ?></strong></p>
 			<p> <a href="../administrador.php" style="color: red;">logout</a> </p>
 		<?php endif ?>
 	</div>
+<?php
+?>
 
 </body>
 

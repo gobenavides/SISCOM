@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+echo "Acceso denegado. Inicie sesión como administrador para ver esta página";
+die();
+}
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
