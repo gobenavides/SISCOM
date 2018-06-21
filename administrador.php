@@ -5,6 +5,9 @@
   <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+          <?php include("cabecera.php");?>
+
 </head>
 
 <nav class="navbar navbar-default">
@@ -49,9 +52,5 @@
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-<?php
 
-include("connect_db.php");
-$sql="SELECT * FROM postulante";
-$result = $mysqli->query($sql);
-?>
+<?php include("pie-de-pag.php");?>
