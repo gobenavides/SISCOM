@@ -47,7 +47,7 @@ die();
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registrar <span class="caret"></span></a>
           <ul class="dropdown-menu"> <!-- es una lista tipo drop dawn, la clase="dropdown-menu" es un estilo que tiene bootstrap el cual añadimos en el head -->
-            <li><a href="elegir_ayudantes.php">Elegir alumnos ayudantes</a></li>
+            
             <li><a href="pasar_semestre.php">Limpiar base para pasar a semestre siguiente</a></li>
             <li role="separator" class="divider"></li> <!-- separa visualmente la lista  -->
             <li><a href="add_nuevos.php">Añadir nuevos docentes o asignaturas.</a></li>
