@@ -120,7 +120,7 @@ die();
             </select>
         </div>
         <div class="form-group">
-          <label>Seleccione el horario del ramo</label>
+          <label>Seleccione el horario de ayudantías del ramo</label>
         <center><p><table>
           <tr>
         	 <th>HORA&nbsp</th><th>LUNES&nbsp </th><th>MARTES&nbsp</th><th> MIÉRCOLES&nbsp</th><th> JUEVES&nbsp </th><th>VIERNES </th></tr><tr>
