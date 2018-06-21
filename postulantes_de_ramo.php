@@ -64,9 +64,13 @@ $cod_ramo= $_POST["codigo_ramo"];
 $sql="SELECT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
 FROM postulante, postula WHERE postulante.matricula=postula.matricula AND postula.codigo='".$cod_ramo."'";
 
-$sql2="SELECT postulante.nombre,postulante.matricula,postulante.correo FROM postulante, postula,dispone,tiene
-WHERE postulante.matricula=postula.matricula AND postula.codigo='$cod_ramo' AND dispone.matricula=postulante.matricula AND tiene.codigo='$cod_ramo'
-AND postulante.matricula = ALL (SELECT dispone.matricula FROM dispone,tiene WHERE dispone.dia=tiene.dia AND dispone.hora=tiene.hora )";
+$sql2="SELECT postulante.nombre,postulante.matricula,postulante.correo,postula.solicitado
+FROM postulante, postula,dispone,tiene
+WHERE postulante.matricula=postula.matricula AND postula.codigo='$cod_ramo'
+AND dispone.matricula=postulante.matricula AND tiene.codigo='$cod_ramo'
+AND postulante.matricula =
+ALL (SELECT dispone.matricula FROM dispone,tiene
+  WHERE dispone.matricula=tiene.matricula AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )";
 
 /* FALTA ARREGLAR LA ÚLTIMA CONSULTA */
 
@@ -121,7 +125,7 @@ $tabla2= $mysqli->query($sql2);
           <th scope="col">Nombre</th>
           <th scope="col">Matrícula</th>
           <th scope="col">Correo</th>
-          <th scope="col"> </th>
+          <th scope="col">Solicitado </th>
         </tr>
       </thead>
 
@@ -131,6 +135,7 @@ $tabla2= $mysqli->query($sql2);
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
+            <td><?php echo $row[3]; ?></td>
             <td><a href="info_postulante.php?post_matricula=<?php echo $row[1]; ?>">(ver detalles)</a></td>
 
           </tr>
