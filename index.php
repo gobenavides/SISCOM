@@ -64,7 +64,7 @@ li a:hover:not(.active) {
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul> <!-- esto es una lista desordenada -->
-            <li><a href="administrador.php">Administrador<span class="sr-only">(current)</span></a></li> <!-- Falta crear página de adminitrador-->
+            <li><a href="inicio_sesion/login.php">Administrador<span class="sr-only">(current)</span></a></li> <!-- Falta crear página de adminitrador-->
             <li><a href="postulante0.php">Postulante Nuevo<span class="sr-only">(current)</span></a></li>
             <li><a href="postulante1.php">Postulante Ya Registrado<span class="sr-only">(current)</span></a></li>
               </ul>
