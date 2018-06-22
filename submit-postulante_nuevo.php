@@ -9,6 +9,13 @@ $ramo3= $_POST['ramo3'];
 $nota1= $_POST['nota1'];
 $nota2= $_POST['nota2'];
 $nota3= $_POST['nota3'];
+if( $nota1 > 7 or $nota1 < 4 )
+  {echo "nota ingresada no válida" }
+elseif( $nota2 > 7 or $nota2 < 4 )
+  {echo "nota ingresada no válida" }
+elseif( $nota3 > 7 or $nota3 < 4  )
+  {echo "nota ingresada no válida" }
+  else{
 $ramo_cursado1= $_POST['ramo_cursado1'];
 $ramo_cursado2= $_POST['ramo_cursado2'];
 $ramo_cursado3= $_POST['ramo_cursado3'];
@@ -332,6 +339,6 @@ if(isset($_POST['solicitado3'])){
 }}
 	else{
 		echo "error en la postulación (datos de postulante)";
-	}
+	}}
 
 ?>
