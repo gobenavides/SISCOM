@@ -47,17 +47,23 @@ if(isset($_POST['solicitado3'])){
 				}
 			}
 			if(!empty($ramo_cursado1)){
+        $r1=$mysqli->query("SELECT * FROM curso WHERE curso.matricula='$matricula' AND curso.codigo='$ramo_cursado1'");
+        if (mysqli_num_rows($r1)==0){
 				$query01 = "INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado1','$nota1')";
 				mysqli_query($mysqli,$query01);
-			}
+			}}
 			if(!empty($ramo_cursado2)){
+        $r2=$mysqli->query("SELECT * FROM curso WHERE curso.matricula='$matricula' AND curso.codigo='$ramo_cursado2'");
+        if (mysqli_num_rows($r2)==0){
 				$query02 = "INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado2','$nota2')";
 				mysqli_query($mysqli,$query02);
-			}
+			}}
 			if(!empty($ramo_cursado3)){
+        $r3=$mysqli->query("SELECT * FROM curso WHERE curso.matricula='$matricula' AND curso.codigo='$ramo_cursado3'");
+        if (mysqli_num_rows($r3)==0){
 				$query03 = "INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado3','$nota3')";
 				mysqli_query($mysqli,$query03);
-			}
+			}}
 			if(isset($_POST['1-lunes'])){
 				$hora1="INSERT INTO dispone(matricula,dia,hora) VALUES ($matricula,'LUNES','8:15:00')";
 				mysqli_query($mysqli,$hora1);

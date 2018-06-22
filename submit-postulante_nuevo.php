@@ -31,16 +31,22 @@ if(isset($_POST['solicitado3'])){
 	$resultado= $mysqli->query($query);
 	if($resultado){
 		if(!empty($ramo_cursado1)){
+      $r1=$mysqli->query("SELECT * FROM curso WHERE curso.matricula='$matricula' AND curso.codigo='$ramo_cursado1'");
+      if (mysqli_num_rows($r1)==0){
 			$query01 = "INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado1','$nota1')";
 			mysqli_query($mysqli,$query01);
 			if(!empty($ramo_cursado2)){
+        $r2=$mysqli->query("SELECT * FROM curso WHERE curso.matricula='$matricula' AND curso.codigo='$ramo_cursado2'");
+        if (mysqli_num_rows($r2)==0){
 				$query02 = "INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado2','$nota2')";
 				mysqli_query($mysqli,$query02);
-			}
+			}}
 			if(!empty($ramo_cursado3)){
+        $r3=$mysqli->query("SELECT * FROM curso WHERE curso.matricula='$matricula' AND curso.codigo='$ramo_cursado3'");
+        if (mysqli_num_rows($r3)==0){
 				$query03 = "INSERT INTO curso(matricula,codigo,calificacion) VALUES ('$matricula','$ramo_cursado3','$nota3')";
 				mysqli_query($mysqli,$query03);
-			}
+			}}
 			$query1="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo1','$solicitado1','0')";
 			$resultado1= $mysqli->query($query1);
 			if($resultado1){
@@ -323,7 +329,7 @@ if(isset($_POST['solicitado3'])){
 		echo "Los postulantes deben haber cursado al menos un ramo en la Facultad de Ciencias Físicas y Matemáticas";
 	}
 	echo "postulación exitosa";
-	}
+}}
 	else{
 		echo "error en la postulación (datos de postulante)";
 	}
