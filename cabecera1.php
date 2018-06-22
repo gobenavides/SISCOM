@@ -33,7 +33,7 @@
 	<div class="header">
 		<a href="index.php">Servicio de Postulación a Ayudantías</a>
 	  <div class="header-right">
-			<a class="logo" href="http://www.cfm.cl/"><img align="right" src="images/cfm.png" alt="cfm_h" /></a>
+			<a class="logo" href="http://www.cfm.cl/"><img align="right" src="images/cfmm.png" alt="cfm_h" /></a>
 	    	  </div>
 	</div>
 

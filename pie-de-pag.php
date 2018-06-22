@@ -48,7 +48,7 @@ html,body{
 	<div class="footer">
 		<a>Grupo 23</a>
 	  <div class="header-right">
-			<a class="logo" href="http://www.icm.udec.cl/"><img align="right" src="images/icmm.png" alt="cfm_h" /></a>
+			<a class="logo" href="http://www.icm.udec.cl/"><img align="right" src="images/icm.png" alt="cfm_h" /></a>
 	    	  </div>
 	</div>
 
