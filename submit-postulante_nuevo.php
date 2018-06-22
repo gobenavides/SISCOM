@@ -2,7 +2,7 @@
 include("connect_db.php");
 $nombre= $_POST['nombre'];
 $matricula= $_POST['matricula'];
-$mail= $_POST['mail']
+$mail= $_POST['mail'];
 $ramo1= $_POST['ramo1'];
 $ramo2= $_POST['ramo2'];
 $ramo3= $_POST['ramo3'];

@@ -41,7 +41,7 @@ die();
     <div class="container">
     	<form action='vaciar-tablas.php' method=post>
         <div class="form-group">
-        <big>Se vaciarán las tablas postula y dispone.</big>
+        <big>Se borrarán las postulaciones del semestre.</big>
                   <label>Indicar código de semestre</label>
                   <p>Código Semestre: <input type=text name=semestre /></p></div>
         <button align="right" type=" button" class="btn">Vaciar tablas</button></form>
