@@ -46,6 +46,7 @@ $tabla2= $mysqli->query($sql2);
           <th scope="col">Matrícula</th>
           <th scope="col">Correo</th>
           <th scope="col">Solicitado</th>
+          <th scope="col">Ayudantías asignadas</th>
           <th scope="col">Aceptar</th>
         </tr>
       </thead>
@@ -53,11 +54,19 @@ $tabla2= $mysqli->query($sql2);
       <tbody>
         <?php while ($row = mysqli_fetch_array($tabla)) { ?>
           <tr>
+
+            <?php $ayud_asig="SELECT SUM(postula.seleccionado) FROM postula WHERE postula.matricula='$row[1]'";
+            $ayud_asig= $mysqli->query($ayud_asig);
+            $ayud_asig= mysqli_fetch_array($ayud_asig);
+            ?>
+
+
             <td><?php echo $row[0]; ?></td>
             <td><a href="info_postulante.php?post_matricula=<?php echo $row[1]; ?>">(ver detalles)</a></td>
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
             <td><?php echo $row[3]; ?></td>
+            <td><?php echo $ayud_asig[0]; ?></td>
             <td><input type="checkbox" name="aceptar[]" value="<?php echo $row[1]; ?>"></td>
           </tr>
         <?php } ?>
@@ -78,17 +87,24 @@ $tabla2= $mysqli->query($sql2);
           <th scope="col">Matrícula</th>
           <th scope="col">Correo</th>
           <th scope="col">Solicitado </th>
+          <th scope="col">Ayudantías asignadas </th>
         </tr>
       </thead>
 
       <tbody>
         <?php while ($row = mysqli_fetch_array($tabla2)) { ?>
           <tr>
+            <?php $ayud_asig="SELECT SUM(postula.seleccionado) FROM postula WHERE postula.matricula='$row[1]'";
+            $ayud_asig= $mysqli->query($ayud_asig);
+            $ayud_asig= mysqli_fetch_array($ayud_asig);
+            ?>
+
             <td><?php echo $row[0]; ?></td>
             <td><a href="info_postulante.php?post_matricula=<?php echo $row[0]; ?>">(ver detalles)</a></td>
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
             <td><?php echo $row[3]; ?></td>
+            <td><?php echo $ayud_asig[0]; ?></td>
 
           </tr>
         <?php } ?>
