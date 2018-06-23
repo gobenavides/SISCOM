@@ -28,7 +28,7 @@ if(!empty($_POST['aceptar'])) {
                     WHERE matricula = '".$check."' AND codigo = '". $codigo ."'";
             mysqli_query($mysqli,$query);
     }
-    echo "postulaciones aceptadas para  ";
+    echo "Postulaciones aceptadas para  ";
     echo $codigo;
 }else{
   echo "No ha seleccionado a ningún postulante.";

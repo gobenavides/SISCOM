@@ -27,10 +27,10 @@ if(!empty($_POST['aceptar'])) {
                     WHERE matricula = '".$mat_postulante."' AND codigo = '". $check ."'";
             mysqli_query($mysqli,$query);
     }
-    echo "postulaciones aceptadas para  ";
+    echo "Postulaciones aceptadas para  ";
     echo $mat_postulante;
 }else{
-  echo "no ha seleccionado a ningún ramo.";
+  echo "No ha seleccionado a ningún ramo.";
 }
 
 ?>
