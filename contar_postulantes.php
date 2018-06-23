@@ -26,15 +26,18 @@ $sql_sin="SELECT DISTINCT ramo.nombre,ramo.codigo,profesor.nombre
 FROM ramo,postula,dicta,profesor
 WHERE dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo
 AND NOT ramo.codigo = ANY (SELECT postula.codigo
-  FROM postula WHERE postula.seleccionado=1)";
-  $sql_con="SELECT ramo.nombre,ramo.codigo,profesor.nombre,postulante.nombre,postulante.matricula
-  FROM ramo,postula,dicta,profesor,postulante
-  WHERE postula.matricula=postulante.matricula AND
-  dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo AND
-  ramo.codigo = postula.codigo AND postula.seleccionado=1";
-  $ramos_con = $mysqli->query($sql_con);
-  $ramos_sin = $mysqli->query($sql_sin);
-  ?>
+FROM postula WHERE postula.seleccionado=1)
+ORDER BY ramo.codigo";
+
+$sql_con="SELECT ramo.nombre,ramo.codigo,profesor.nombre,postulante.nombre,postulante.matricula
+FROM ramo,postula,dicta,profesor,postulante
+WHERE postula.matricula=postulante.matricula AND
+dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo AND
+ramo.codigo = postula.codigo AND postula.seleccionado=1
+ORDER BY ramo.codigo";
+$ramos_con = $mysqli->query($sql_con);
+$ramos_sin = $mysqli->query($sql_sin);
+?>
 
   <!-- tabla-->
   <body>
