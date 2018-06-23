@@ -5,10 +5,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 echo "Acceso denegado. Inicie sesión como administrador para ver esta página";
 die();
 }
+
+
 ?>
 
 <html lang="es">
 <head>
+
   <meta charset="UTF-8">
   <title>Sistema de Postulación a ayudantías: Sección Administrador</title>
   <link type="text/css" rel="stylesheet" href="css/bootstrap.css"  media="screen,projection"/>
@@ -21,7 +24,7 @@ die();
   <?php
   include("connect_db.php");
   $sql_general="SELECT * FROM postulante";
-  $sql_ramos="SELECT codigo FROM ramo";
+  $sql_ramos="SELECT codigo,nombre FROM ramo ORDER BY codigo";
   $result_general = $mysqli->query($sql_general);
   $ramos = $mysqli->query($sql_ramos);
   ?>
@@ -40,7 +43,7 @@ die();
             <?php while ($row = mysqli_fetch_array($ramos)) { ?>
               <tr>
 
-                <option value="<?php echo $row[0]; ?>" > <?php echo $row[0]; ?></option> <!-- FALTA VER COMO PONER EL VALUE!!!!!! -->
+                <option value="<?php echo $row[0]; ?>" > <?php echo $row[0]." ".$row[1]; ?></option> <!-- FALTA VER COMO PONER EL VALUE!!!!!! -->
               </tr>
             <?php } ?>
           </select>

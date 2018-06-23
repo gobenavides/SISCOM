@@ -26,8 +26,8 @@ $sql2="SELECT DISTINCT postulante.nombre,postulante.matricula,postulante.correo,
 FROM postulante, postula,dispone,tiene
 WHERE postulante.matricula=postula.matricula AND postula.codigo='$cod_ramo'
 AND tiene.codigo='$cod_ramo' AND postulante.matricula = ANY (SELECT dispone.matricula
-  FROM dispone,tiene WHERE tiene.codigo='$cod_ramo' AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )
-  ORDER BY postula.solicitado DESC";
+FROM dispone,tiene WHERE tiene.codigo='$cod_ramo' AND dispone.dia=tiene.dia AND dispone.hora=tiene.hora )
+ORDER BY postula.solicitado DESC";
 
 
 $tabla = $mysqli->query($sql);

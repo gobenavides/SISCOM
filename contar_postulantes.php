@@ -20,6 +20,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 
 <?php
 include("connect_db.php");
+
+
 $sql_sin="SELECT DISTINCT ramo.nombre,ramo.codigo,profesor.nombre
 FROM ramo,postula,dicta,profesor
 WHERE dicta.rut=profesor.rut AND dicta.codigo=ramo.codigo
