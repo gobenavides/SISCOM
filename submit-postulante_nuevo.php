@@ -6,19 +6,45 @@ $mail= $_POST['mail'];
 $ramo1= $_POST['ramo1'];
 $ramo2= $_POST['ramo2'];
 $ramo3= $_POST['ramo3'];
+$q1=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo1");
+$q2=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo2");
+$q3=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo3");
 $nota1= $_POST['nota1'];
 $nota2= $_POST['nota2'];
 $nota3= $_POST['nota3'];
-if( $nota1 > 7 or $nota1 < 4 )
-  {echo "nota ingresada no válida" ;}
-elseif( $nota2 > 7 or $nota2 < 4 )
-  {echo "nota ingresada no válida" ;}
-elseif( $nota3 > 7 or $nota3 < 4  )
-  {echo "nota ingresada no válida"; }
-  else{
 $ramo_cursado1= $_POST['ramo_cursado1'];
 $ramo_cursado2= $_POST['ramo_cursado2'];
 $ramo_cursado3= $_POST['ramo_cursado3'];
+$q01=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado1");
+$q02=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado2");
+$q03=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado3");
+if( ($nota1 > 7 or $nota1 < 4) and !empty($nota1))
+  {echo "nota ingresada no válida" ;}
+elseif( ($nota2 > 7 or $nota2 < 4) and !empty($nota2) )
+  {echo "nota ingresada no válida" ;}
+elseif( ($nota3 > 7 or $nota3 < 4)  and !empty($nota3))
+  {echo "nota ingresada no válida"; }
+elseif (empty($ramo1))
+  {echo "debe postular a al menos un ramo" ;}
+elseif( mysqli_num_rows($q1)==0 )
+  {echo "código ramo 1 a postular inválido" ;}
+elseif(!empty($ramo2))
+  {if(mysqli_num_rows($q2)==0){
+    echo "código ramo 2 a postular inválido" ;}}
+elseif(!empty($ramo3))
+  {if(mysqli_num_rows($q3)==0){
+    echo "código ramo 3 a postular inválido" ;}}
+elseif (empty($ramo_cursado1)){
+  echo "debe haber cursado al menos un ramo en la FCFM"}
+elseif(mysqli_num_rows($q01)==0)
+  {echo "código ramo cursado 1 inválido" ;}
+elseif(!empty($ramo_cursado2))
+  {if(mysqli_num_rows($q02)==0){
+    echo "código ramo cursado 2 inválido" ;}}
+elseif(!empty($ramo_cursado3))
+  {if(mysqli_num_rows($q03)==0){
+    echo "código ramo cursado 3 inválido" ;}}
+  else{
 if(isset($_POST['solicitado1'])){
   $solicitado1 = 1;
 }else{
