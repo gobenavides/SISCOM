@@ -33,7 +33,7 @@ $consulta_horario="SELECT dispone.dia,dispone.hora FROM dispone WHERE dispone.ma
 $consulta_postula="SELECT ramo.nombre,ramo.codigo FROM ramo,postula WHERE ramo.codigo=postula.codigo AND postula.matricula='".$mat_postulante."'";
 
 $consulta_curso="SELECT DISTINCT ramo.nombre,ramo.codigo,curso.calificacion FROM ramo,curso,postula
-WHERE ramo.codigo=curso.codigo AND postula.matricula='".$mat_postulante."'";
+WHERE ramo.codigo=curso.codigo AND curso.matricula='".$mat_postulante."'";
 
 $consulta_ayudo="SELECT ramo.nombre,ramo.codigo,ayudo.codigo_semestre,profesor.nombre FROM ramo,ayudo,profesor,dicta
 WHERE ramo.codigo=ayudo.codigo AND profesor.rut=dicta.rut AND dicta.codigo_semestre=ayudo.codigo_semestre
