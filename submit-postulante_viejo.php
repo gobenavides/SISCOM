@@ -19,7 +19,7 @@ $q01=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado1");
 $q02=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado2");
 $q03=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado3");
 if(strlen($matricula)!=10){
-  echo "la matrícula ingresada no es válida."
+  echo "la matrícula ingresada no es válida.";
 }
 elseif( ($nota1 > 7 or $nota1 < 4) and !empty($nota1))
   {echo "nota ingresada no válida" ;}
