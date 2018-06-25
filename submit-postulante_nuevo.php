@@ -55,7 +55,7 @@ elseif(!empty($ramo_cursado2))
   else {
     goto a3;
   }}
-goto a3:
+a3:
 if(!empty($ramo_cursado3))
   {if(mysqli_num_rows($q03)==0){
     echo "Código ramo cursado 3 inválido" ;}
