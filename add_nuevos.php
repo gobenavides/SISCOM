@@ -44,6 +44,7 @@ die();
           	<form action='submit-docente.php' method=post>
               <div class="form-group">
                         <label>Indicar datos</label>
+                        <p>El rut debe ir con puntos y guión</p>
                         <p>Rut docente: <input type=text name=rut /></p>
                       <p>Nombre docente: <input type=text name=nombre /></p></div>
               <button align="right" type=" button" class="btn">Añadir docente</button></form></div>
