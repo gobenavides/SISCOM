@@ -19,33 +19,33 @@ $q01=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado1");
 $q02=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado2");
 $q03=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado3");
 if(strlen($matricula)!=10){
-  echo "la matrícula ingresada no es válida.";
+  echo "La matrícula ingresada no es válida.";
 }
 elseif( ($nota1 > 7 or $nota1 < 4) and !empty($nota1))
-  {echo "nota ingresada no válida" ;}
+  {echo "Calificación ingresada no válida" ;}
 elseif( ($nota2 > 7 or $nota2 < 4) and !empty($nota2) )
-  {echo "nota ingresada no válida" ;}
+  {echo "Calificación ingresada no válida" ;}
 elseif( ($nota3 > 7 or $nota3 < 4)  and !empty($nota3))
-  {echo "nota ingresada no válida"; }
+  {echo "Calificación ingresada no válida"; }
 elseif (empty($ramo1))
-  {echo "debe postular a al menos un ramo" ;}
+  {echo "Debe postular a al menos un ramo" ;}
 elseif( mysqli_num_rows($q1)==0 )
-  {echo "código ramo 1 a postular inválido" ;}
+  {echo "Código ramo 1 a postular inválido" ;}
 elseif(!empty($ramo2))
   {if(mysqli_num_rows($q2)==0){
-    echo "código ramo 2 a postular inválido" ;}}
+    echo "Código ramo 2 a postular inválido" ;}}
 elseif(!empty($ramo3))
   {if(mysqli_num_rows($q3)==0){
-    echo "código ramo 3 a postular inválido" ;}}
+    echo "Código ramo 3 a postular inválido" ;}}
 elseif (!empty($ramo_cursado1))
   {if( mysqli_num_rows($q01)==0 )
-  {echo "código ramo cursado 1 inválido" ;}}
+  {echo "Código ramo cursado 1 inválido" ;}}
 elseif(!empty($ramo_cursado2))
   {if(mysqli_num_rows($q02)==0){
-    echo "código ramo cursado 2 inválido" ;}}
+    echo "Código ramo cursado 2 inválido" ;}}
 elseif(!empty($ramo_cursado3))
   {if(mysqli_num_rows($q03)==0){
-    echo "código ramo cursado 3 inválido" ;}}
+    echo "Código ramo cursado 3 inválido" ;}}
   else{
 if(isset($_POST['solicitado1'])){
   $solicitado1 = 1;
@@ -74,11 +74,11 @@ if(isset($_POST['solicitado3'])){
 			if(!empty($ramo2)){
 				$query2="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo2','$solicitado2','0')";
 				$resultado2= $mysqli->query($query2);
-				if(!$resultado2){echo "error en la postulación (ramo 2)";}
+				if(!$resultado2){echo "Error en la postulación (ramo 2)";}
 				if(!empty($ramo3)){
 					$query3="INSERT INTO postula(matricula, codigo,solicitado,seleccionado) VALUES ('$matricula','$ramo2','$solicitado2','0')";
 					$resultado3= $mysqli->query($query3);
-					if(!$resultado3){echo "error en la postulación (ramo 3)";}
+					if(!$resultado3){echo "Error en la postulación (ramo 3)";}
 				}
 			}
 			if(!empty($ramo_cursado1)){
@@ -359,12 +359,12 @@ if(isset($_POST['solicitado3'])){
 				$hora65="INSERT INTO dispone(matricula,dia,hora) VALUES ($matricula,'VIERNES','20:15:00')";
 				mysqli_query($mysqli,$hora65);
 			}
-			echo "postulación exitosa.";
+			echo "Postulación exitosa.";
 		}
 		else{
-			echo "error en la postulación (ramo 1)";
+			echo "Error en la postulación (ramo 1)";
 		}}
 	else{
-		echo "no se encuentra registro de este postulante.";
+		echo "No se encuentra registro de este postulante.";
 	}}
 ?>
