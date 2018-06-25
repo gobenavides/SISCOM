@@ -8,6 +8,6 @@ $resultado= $mysqli->query($query);
 
 header("Location:add_nuevos.php")
 }else{
-  echo "el rut ingresado no es válido"
+  echo "el rut ingresado no es válido";
 }
 ?>

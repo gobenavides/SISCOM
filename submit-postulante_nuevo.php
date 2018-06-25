@@ -19,7 +19,7 @@ $q01=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado1");
 $q02=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado2");
 $q03=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado3");
 if(strlen($matricula)!=10){
-  echo "la matrícula ingresada no es válida."
+  echo "la matrícula ingresada no es válida.";
 }
 elseif( ($nota1 > 7 or $nota1 < 4) and !empty($nota1))
   {echo "nota ingresada no válida" ;}
@@ -38,7 +38,7 @@ elseif(!empty($ramo3))
   {if(mysqli_num_rows($q3)==0){
     echo "código ramo 3 a postular inválido" ;}}
 elseif (empty($ramo_cursado1)){
-  echo "debe haber cursado al menos un ramo en la FCFM"}
+  echo "debe haber cursado al menos un ramo en la FCFM";}
 elseif(mysqli_num_rows($q01)==0)
   {echo "código ramo cursado 1 inválido" ;}
 elseif(!empty($ramo_cursado2))
