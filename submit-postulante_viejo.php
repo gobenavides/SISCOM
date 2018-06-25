@@ -6,18 +6,18 @@ $mail= $_POST['mail'];
 $ramo1= $_POST['ramo1'];
 $ramo2= $_POST['ramo2'];
 $ramo3= $_POST['ramo3'];
-$q1=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo1");
-$q2=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo2");
-$q3=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo3");
+$q1=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo='".$ramo1."'");
+$q2=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo='".$ramo2."'");
+$q3=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo='".$ramo3."'");
 $nota1= $_POST['nota1'];
 $nota2= $_POST['nota2'];
 $nota3= $_POST['nota3'];
 $ramo_cursado1= $_POST['ramo_cursado1'];
 $ramo_cursado2= $_POST['ramo_cursado2'];
 $ramo_cursado3= $_POST['ramo_cursado3'];
-$q01=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado1");
-$q02=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado2");
-$q03=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo=$ramo_cursado3");
+$q01=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo='".$ramo_cursado1."'");
+$q02=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo='".$ramo_cursado2."'");
+$q03=mysqli_query($mysqli,"SELECT * from ramo WHERE codigo='".$ramo_cursado3."'");
 if(strlen($matricula)!=10){
   echo "La matrícula ingresada no es válida.";
 }
@@ -31,23 +31,43 @@ elseif (empty($ramo1))
   {echo "Debe postular a al menos un ramo" ;}
 elseif( mysqli_num_rows($q1)==0 )
   {echo "Código ramo 1 a postular inválido" ;}
-elseif(!empty($ramo2))
-  {if(mysqli_num_rows($q2)==0){
-    echo "Código ramo 2 a postular inválido" ;}}
-elseif(!empty($ramo3))
-  {if(mysqli_num_rows($q3)==0){
-    echo "Código ramo 3 a postular inválido" ;}}
-elseif (!empty($ramo_cursado1))
-  {if( mysqli_num_rows($q01)==0 )
-  {echo "Código ramo cursado 1 inválido" ;}}
-elseif(!empty($ramo_cursado2))
-  {if(mysqli_num_rows($q02)==0){
-    echo "Código ramo cursado 2 inválido" ;}}
-elseif(!empty($ramo_cursado3))
-  {if(mysqli_num_rows($q03)==0){
-    echo "Código ramo cursado 3 inválido" ;}}
-  else{
-if(isset($_POST['solicitado1'])){
+  elseif(!empty($ramo2))
+    {if(mysqli_num_rows($q2)==0){
+      echo "código ramo 2 a postular inválido" ;}
+    else {
+      goto a1;
+    }}
+  a1:
+  if(!empty($ramo3))
+    {if(mysqli_num_rows($q3)==0){
+      echo "código ramo 3 a postular inválido" ;}
+    else {
+      goto a2;
+    }}
+  a2:
+  if (!empty($ramo_cursado1))
+    {if( mysqli_num_rows($q01)==0 )
+    {echo "código ramo cursado 1 inválido" ;}
+  else {
+    goto a3;
+  }}
+  a3:
+  if(!empty($ramo_cursado2))
+    {if(mysqli_num_rows($q02)==0){
+      echo "código ramo cursado 2 inválido" ;}
+    else {
+      goto a4;
+    }}
+  a4:
+  if(!empty($ramo_cursado3))
+    {if(mysqli_num_rows($q03)==0){
+      echo "código ramo cursado 3 inválido" ;}
+    else {
+      goto a5;
+    }}
+else{
+  a5:
+  if(isset($_POST['solicitado1'])){
   $solicitado1 = 1;
 }else{
   $solicitado1=0;
