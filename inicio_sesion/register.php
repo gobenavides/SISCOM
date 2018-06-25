@@ -7,34 +7,33 @@
 </head>
 <body>
 	<div class="header">
-		<h2>Register</h2>
+		<h2>Registro de nuevo usuario</h2>
 	</div>
-	
+
 	<form method="post" action="register.php">
 
 		<?php include('errors.php'); ?>
 
 		<div class="input-group">
-			<label>Username</label>
+			<label>Nombre de usuario</label>
 			<input type="text" name="username" value="<?php echo $username; ?>">
 		</div>
 		<div class="input-group">
-			<label>Email</label>
+			<label>Correo electrónico</label>
 			<input type="email" name="email" value="<?php echo $email; ?>">
 		</div>
 		<div class="input-group">
-			<label>Password</label>
+			<label>Contraseña</label>
 			<input type="password" name="password_1">
 		</div>
 		<div class="input-group">
-			<label>Confirm password</label>
+			<label>Confirme contraseña</label>
 			<input type="password" name="password_2">
 		</div>
 		<div class="input-group">
-			<button type="submit" class="btn" name="reg_user">Register</button>
+			<button type="submit" class="btn" name="reg_user">Regístrese</button>
 		</div>
 		<p>
-			Already a member? <a href="login.php">Sign in</a>
 		</p>
 	</form>
 </body>
