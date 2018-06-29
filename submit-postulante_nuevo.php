@@ -363,7 +363,7 @@ if(isset($_POST['solicitado3'])){
 	echo "Postulación exitosa";
 }}
 	else{
-		echo "Error en la postulación (datos de postulante)";
+		echo "Error en la postulación (datos de postulante). Es posible que ya se encuentre registrada esta matrícula.";
 	}}
 
 ?>
