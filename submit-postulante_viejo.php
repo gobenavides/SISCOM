@@ -31,42 +31,17 @@ elseif (empty($ramo1))
   {echo "Debe postular a al menos un ramo" ;}
 elseif( mysqli_num_rows($q1)==0 )
   {echo "Código ramo 1 a postular inválido" ;}
-  elseif(!empty($ramo2))
-    {if(mysqli_num_rows($q2)==0){
-      echo "Código ramo 2 a postular inválido" ;}
-    else {
-      goto a1;
-    }}
-  a1:
-  if(!empty($ramo3))
-    {if(mysqli_num_rows($q3)==0){
-      echo "Código ramo 3 a postular inválido" ;}
-    else {
-      goto a2;
-    }}
-  a2:
-  if (!empty($ramo_cursado1))
-    {if( mysqli_num_rows($q01)==0 )
-    {echo "Código ramo cursado 1 inválido" ;}
-  else {
-    goto a3;
-  }}
-  a3:
-  if(!empty($ramo_cursado2))
-    {if(mysqli_num_rows($q02)==0){
-      echo "Código ramo cursado 2 inválido" ;}
-    else {
-      goto a4;
-    }}
-  a4:
-  if(!empty($ramo_cursado3))
-    {if(mysqli_num_rows($q03)==0){
-      echo "Código ramo cursado 3 inválido" ;}
-    else {
-      goto a5;
-    }}
+elseif(!empty($ramo2) AND mysqli_num_rows($q2)==0){
+    echo "Código ramo 2 a postular inválido" ;}
+elseif(!empty($ramo3) AND mysqli_num_rows($q3)==0){
+    echo "Código ramo 3 a postular inválido" ;}
+elseif (!empty($ramo_cursado1) AND mysqli_num_rows($q01)==0)
+  {echo "Código ramo cursado 1 inválido" ;}
+elseif(!empty($ramo_cursado2) AND mysqli_num_rows($q02)==0){
+    echo "Código ramo cursado 2 inválido" ;}
+elseif(!empty($ramo_cursado3) AND mysqli_num_rows($q03)==0)
+  {echo "Código ramo cursado 3 inválido" ;}
 else{
-  a5:
   if(isset($_POST['solicitado1'])){
   $solicitado1 = 1;
 }else{
